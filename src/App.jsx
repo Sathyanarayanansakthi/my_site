@@ -3,7 +3,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Skill from './components/Skill';
 import Education from "./components/Education";
-//import Project from './components/Project';
+import Project from './components/Project';
 //import AboutMe from './components/AboutMe';
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
        <Navbar/>
        <About/>
        <Skill />
+       <Project />
        <Education /> 
        <Footer/>
  </div>

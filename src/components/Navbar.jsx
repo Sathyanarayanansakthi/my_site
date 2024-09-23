@@ -1,7 +1,8 @@
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareGithub } from "react-icons/fa6";
-import { FaDev } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
+import { SlSocialLinkedin  } from "react-icons/sl";
+import { SiGithub  } from "react-icons/si";
+import { SiDevdotto  } from "react-icons/si";
+import { SiInstagram } from "react-icons/si";
+import { SiBloglovin  } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 10 }}
       transition={{
-        duration: 1,
+        duration: 2,
         ease: 'easeInOut',
         delay: 0.5,}}
        >Sathya Narayanan</motion.h4>
@@ -27,7 +28,7 @@ const Navbar = () => {
           aria-label="LinkedIn"
           className="text-gray-50 hover:text-gray-700 transform hover:scale-110 transition-transform duration-300"
         >
-          <FaLinkedin />
+          <SlSocialLinkedin />
         </a>
 
 
@@ -38,7 +39,7 @@ const Navbar = () => {
           aria-label="GitHub"
           className="text-gray-50 hover:text-gray-700 transform hover:scale-110 transition-transform duration-300"
         >
-          <FaSquareGithub />
+          <SiGithub />
         </a>
 
 
@@ -49,7 +50,7 @@ const Navbar = () => {
           aria-label="Dev"
           className="text-gray-50 hover:text-gray-700 transform hover:scale-110 transition-transform duration-300"
         >
-          <FaDev />
+         <SiDevdotto />
         </a>
 
 
@@ -60,7 +61,18 @@ const Navbar = () => {
           aria-label="Instagram"
           className="text-gray-50 hover:text-gray-700 transform hover:scale-110 transition-transform duration-300"
         >
-          <FaInstagramSquare />
+          <SiInstagram />
+
+        </a>
+
+        <a 
+        href="https://www.google.com"
+        target="_blank"
+        rel="noopener norferrer"
+        aria-label="SN blog"
+        className="text-gray-50 hover:text-gray-700 transform hover:scale-110 transition duration-300"
+        >
+          <SiBloglovin />
         </a>
       </div>
     </div>

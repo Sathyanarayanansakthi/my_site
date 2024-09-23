@@ -24,7 +24,7 @@ const Skill = () => {
   return (
 <div className="bg-slate-950 min-h-screen flex flex-col items-center justify-center py-20">
       <motion.h2
-        className="text-4xl text-white mb-10"
+        className="text-4xl text-white mb-10 font-bold"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
