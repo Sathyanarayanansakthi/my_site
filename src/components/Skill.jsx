@@ -1,5 +1,5 @@
 
-import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase } from 'react-icons/fa'; // Existing icons
+import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase } from 'react-icons/fa'; 
 import { SiVercel, SiFirebase } from 'react-icons/si'; 
 import {motion } from 'framer-motion'
 const Skill = () => {
@@ -8,7 +8,7 @@ const Skill = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Adds a delay between each child animation
+        staggerChildren: 0.9, // Adds a delay between each child animation
       },
     },
   };
@@ -92,7 +92,11 @@ const Skill = () => {
           <p className="text-base mt-4 text-gray-400 group-hover:text-white transition-colors duration-300">Vercel</p>
         </motion.div>
       </motion.div>
+      
+      <div className="border-t border-gray-600 mt-6 pt-4 text-center text-sm" />
     </div>
+    
+
   );
 };
 

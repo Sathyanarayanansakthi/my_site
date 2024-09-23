@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="pt-4 sm:pt-6 flex justify-center sm:justify-start text-xl sm:text-2xl md:text-3xl gap-4 sm:gap-6 md:gap-8">
 
         <a
-          href="https://www.linkedin.com/in/your-linkedin-profile"
+          href="https://linkedin.com/in/sathya-narayanans"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -33,7 +33,7 @@ const Navbar = () => {
 
 
         <a
-          href="https://github.com/your-github-profile"
+          href="https://github.com/Sathyanarayanansakthi"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -44,7 +44,7 @@ const Navbar = () => {
 
 
         <a
-          href="https://dev.to/your-dev-profile"
+          href="https://dly.to/sBFI3z051ds "
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Dev"
@@ -55,7 +55,7 @@ const Navbar = () => {
 
 
         <a
-          href="https://www.instagram.com/your-instagram-profile"
+          href="https://www.instagram.com/sathyanarayanansakthi?igsh=MWFzbTZzemNpeXppZw== "
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"

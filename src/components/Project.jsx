@@ -22,7 +22,7 @@ const projectsData = [
     link: "#",
   },
   {
-    title: "Smart India Hackathon Project",
+    title: "Smart India Hackathon Project 2K23",
     description: "A collaborative project to solve real-world problems using innovative technical solutions, developed during the Smart India Hackathon competition.",
     techStack: "JavaScript, Python, SQL",
     link: "#",
