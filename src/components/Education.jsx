@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const educationData = [
   {
     year: "2022 - Present",
-    degree: "Bachlor in Science Computer Science with Cognitive Systems",
+    degree: "Bachelor of Science in Computer Science with Cognitive Systems",
     institution: "Sri Krishna Arts and Science College, Coimbatore",
   },
   {
