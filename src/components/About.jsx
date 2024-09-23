@@ -2,30 +2,47 @@ import image from "../components/images/ai.jpg";
 import { motion } from "framer-motion";
 
 const imageVariants = {
-  hidden: { opacity: 0, scale: 2.9 }, // Initial state: slightly scaled down and invisible
+  hidden: { opacity: 0, scale: 0.9 }, // Initial state: slightly scaled down and invisible
   visible: {
-    opacity: 1, 
-    scale: 1, 
-    transition: { type: "spring", stiffness: 40, duration: 5.0 }, // Spring animation with slight bounce
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring", stiffness: 40, duration: 1.5 }, // Adjusted duration for smoother effect
   },
 };
- 
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 }, // Initial state: invisible and slightly moved down
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 50, duration: 1.9 }, // Smooth spring animation
+  },
+};
+
 const About = () => {
   return (
     <div className="bg-slate-900 min-h-screen flex items-center">
       {/* Container for both left and right sections */}
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20 flex flex-col md:flex-row justify-between">
+        
         {/* Left side content */}
-        <div className="md:w-1/2 text-white text-3xl sm:text-4xl md:text-5xl">
-          <h1>Hello there</h1>
+        <motion.div 
+          className="md:w-1/2 text-white text-3xl sm:text-4xl md:text-5xl"
+          initial="hidden"   // Start with the hidden state
+          animate="visible"   // Animate to the visible state
+          variants={textVariants} // Use defined variants
+        >
+          <h1>Hello There</h1>
           <div className="py-5 sm:py-10 text-base sm:text-lg md:text-xl">
-            A Highly motivated Final-Year Student specializing in Full-Stack Development,
+            A highly motivated Final-Year Student specializing in Full-Stack Development,
             <br /> 
-            Proficient in a wide range of front-end and back-end technologies, I am committed to delivering solutions 
+            proficient in a wide range of front-end and back-end technologies. I am committed to delivering solutions 
             that drive seamless user experiences and operational efficiency. 
             With a keen interest in collaboration and team-driven environments, I am eager to apply my technical 
             expertise to contribute to impactful projects that make a difference in the digital landscape.
           </div>
+
+          {/* Button with Framer Motion */}
           <motion.button
             whileHover={{ scale: 1.1, backgroundColor: "#e5e5e5", color: "#000" }}
             whileTap={{ scale: 0.9 }}
@@ -34,9 +51,9 @@ const About = () => {
           >
             Download Resume
           </motion.button>
-        </div>
+        </motion.div>
 
-
+        {/* Right side content */}
         <div className="md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
           <motion.img 
             src={image} 
@@ -52,4 +69,4 @@ const About = () => {
   );
 };
 
-export default About
+export default About;

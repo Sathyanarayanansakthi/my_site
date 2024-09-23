@@ -6,12 +6,12 @@ function Footer() {
     <footer className="bg-slate-800 text-white py-10">
     <div className="max-w-7xl mx-auto px-4 md:px-8">
       <div className="flex flex-col md:flex-row justify-between">
-        <div className="mb-6 md:mb-0">
+        {/* <div className="mb-6 md:mb-0">
           <h2 className="text-lg font-bold">About Us</h2>
           <p className="mt-2 text-sm">
             We are a passionate team dedicated to building innovative solutions for our clients.
           </p>
-        </div>
+        </div> */}
   
         <div className="mb-6 md:mb-0">
           <h2 className="text-lg font-bold">Contact</h2>

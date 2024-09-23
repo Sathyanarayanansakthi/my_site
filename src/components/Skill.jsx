@@ -8,7 +8,7 @@ const Skill = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.9, // Adds a delay between each child animation
+        staggerChildren: 0.4, // Adds a delay between each child animation
       },
     },
   };
@@ -18,7 +18,7 @@ const Skill = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.4 },
     },
   };
   return (
