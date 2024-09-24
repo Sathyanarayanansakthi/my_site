@@ -11,11 +11,7 @@ const educationData = [
     degree: "Higher Secondary Education (12th)",
     institution: "Sri GopalNaidu Hr Sec School, Coimbatore",
   },
-  {
-    year: "2019 - 2020",
-    degree: "Secondary Education (10th)",
-    institution: "Sri GopalNaidu Hr Sec School, Coimbatore",
-  },
+
 ];
 
 const timelineVariants = {
