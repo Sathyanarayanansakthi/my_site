@@ -19,7 +19,7 @@ function Footer() {
             <li><a href="https://linkedin.com/in/sathya-narayanans" className="hover:text-indigo-400">LinkedIn</a></li>
             <li><a href="https://www.instagram.com/sathyanarayanansakthi?igsh=MWFzbTZzemNpeXppZw==" className="hover:text-indigo-400">Instagram</a></li>
             <li><a href="https://github.com/Sathyanarayanansakthi" className="hover:text-indigo-400">Github</a></li>
-            <li><a href="https://dly.to/sBFI3z051ds" className="hover:text-indigo-400">Dev.to</a></li>
+            <li><a href="https://dly.to/sBFI3z051ds" className="hover:text-indigo-400">Daily.dev</a></li>
           </ul>
         </div>
   
