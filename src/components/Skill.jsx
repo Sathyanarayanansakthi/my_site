@@ -1,6 +1,6 @@
 
 import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase } from 'react-icons/fa'; 
-import { SiVercel, SiFirebase } from 'react-icons/si'; 
+import { SiVercel, SiFirebase,SiExpress  } from 'react-icons/si'; 
 import {motion } from 'framer-motion'
 const Skill = () => {
   const containerVariants = {
@@ -90,6 +90,12 @@ const Skill = () => {
         <motion.div className="flex flex-col items-center group" variants={itemVariants}>
           <SiVercel className="group-hover:text-white transition-transform duration-300 transform group-hover:scale-110" />
           <p className="text-base mt-4 text-gray-400 group-hover:text-white transition-colors duration-300">Vercel</p>
+        </motion.div>
+      </motion.div>
+
+         <motion.div className="flex flex-col items-center group" variants={itemVariants}>
+          < className="group-hover:text-white transition-transform duration-300 transform group-hover:scale-110" />
+          <SiExpress className="text-base mt-4 text-gray-400 group-hover:text-white transition-colors duration-300">Express JS</p>
         </motion.div>
       </motion.div>
       
