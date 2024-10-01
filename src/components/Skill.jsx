@@ -92,9 +92,9 @@ const Skill = () => {
           <p className="text-base mt-4 text-gray-400 group-hover:text-white transition-colors duration-300">Vercel</p>
         </motion.div>
       </motion.div>
-
+  {/*Express js*/}
          <motion.div className="flex flex-col items-center group" variants={itemVariants}>
-          < className="group-hover:text-white transition-transform duration-300 transform group-hover:scale-110" />
+          < p className="group-hover:text-white transition-transform duration-300 transform group-hover:scale-110" />
           <SiExpress className="text-base mt-4 text-gray-400 group-hover:text-white transition-colors duration-300">Express JS</p>
         </motion.div>
       </motion.div>
