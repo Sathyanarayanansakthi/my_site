@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const educationData = [
   {
     year: "2022 - Present",
-    degree: "Bachlor in Science Computer Science with Cognitive Systems",
+    degree: "Bachelor of Science in Computer Science with Cognitive Systems",
     institution: "Sri Krishna Arts and Science College, Coimbatore",
   },
   {
@@ -11,6 +11,10 @@ const educationData = [
     degree: "Higher Secondary Education (12th)",
     institution: "Sri GopalNaidu Hr Sec School, Coimbatore",
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 30f5ac3366d41d06afa050960ccfb5f34bf73540
 ];
 
 const timelineVariants = {

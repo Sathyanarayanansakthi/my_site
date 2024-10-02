@@ -1,7 +1,12 @@
 import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase } from 'react-icons/fa'; 
+<<<<<<< HEAD
 import { SiVercel, SiFirebase, SiExpress } from 'react-icons/si'; 
 import { motion } from 'framer-motion';
 
+=======
+import { SiVercel, SiFirebase,SiExpress  } from 'react-icons/si'; 
+import {motion } from 'framer-motion'
+>>>>>>> 30f5ac3366d41d06afa050960ccfb5f34bf73540
 const Skill = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -99,7 +104,17 @@ const Skill = () => {
           <p className="text-base mt-4 text-gray-400 group-hover:text-white transition-colors duration-300">Express JS</p>
         </motion.div>
       </motion.div>
+<<<<<<< HEAD
 
+=======
+  {/*Express js*/}
+         <motion.div className="flex flex-col items-center group" variants={itemVariants}>
+          < p className="group-hover:text-white transition-transform duration-300 transform group-hover:scale-110" />
+          <SiExpress className="text-base mt-4 text-gray-400 group-hover:text-white transition-colors duration-300">Express JS</p>
+        </motion.div>
+      </motion.div>
+      
+>>>>>>> 30f5ac3366d41d06afa050960ccfb5f34bf73540
       <div className="border-t border-gray-600 mt-6 pt-4 text-center text-sm" />
     </div>
   );
