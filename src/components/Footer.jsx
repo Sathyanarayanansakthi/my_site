@@ -29,8 +29,6 @@ function Footer() {
           <p className="mt-1 text-sm">Phone: <a href="tel:+1234567890" className="hover:text-indigo-400">+91 8122103066</a></p>
         </div>
       </div>
-  
-        <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
       </div>
   </footer>
   

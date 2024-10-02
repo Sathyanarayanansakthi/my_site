@@ -66,7 +66,7 @@ const Navbar = () => {
         </a>
 
         <a 
-        href="https://www.google.com"
+        href="comingsoon"
         target="_blank"
         rel="noopener norferrer"
         aria-label="SN blog"
