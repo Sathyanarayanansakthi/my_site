@@ -66,11 +66,7 @@ const Navbar = () => {
         </a>
 
         <a 
-<<<<<<< HEAD
         href="comingsoon"
-=======
-        href="thya-narayanan-site.vercel.app"
->>>>>>> 30f5ac3366d41d06afa050960ccfb5f34bf73540
         target="_blank"
         rel="noopener norferrer"
         aria-label="SN blog"

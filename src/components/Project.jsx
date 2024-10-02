@@ -10,7 +10,7 @@ const projectsData = [
 
   },
   {
-   title: "IR Rakes Management And Booking (under construction)",
+   title: "IR Rakes (under construction)",
    description:"",
    techStack:'React JS ,Tailwindcss,Node JS, Express JS ,Firebase ,MongoDB ',
 
