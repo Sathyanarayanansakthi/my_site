@@ -19,7 +19,7 @@ const textVariants = {
   },
 };
 
-const About = () => {
+const About = () => { 
   return (
     <div className="bg-slate-900 min-h-screen flex items-center">
       {/* Container for both left and right sections */}

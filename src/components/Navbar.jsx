@@ -9,15 +9,15 @@ const Navbar = () => {
   return (
     
     <div className="py-4 sm:py-8 px-4 sm:px-10 md:px-20 text-2xl sm:text-3xl md:text-4xl ">
-      <motion.h4
-      className="text-4xl text-white font-bold"
+      <motion.h6
+      className="text-2xl text-white font-medium"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 10 }}
       transition={{
         duration: 2,
         ease: 'easeInOut',
-        delay: 0.5,}}
-       >Sathya Narayanan</motion.h4>
+        delay: 0.3,}}
+       >Sathya Narayanan</motion.h6>
       
       <div className="pt-4 sm:pt-6 flex justify-center sm:justify-start text-xl sm:text-2xl md:text-3xl gap-4 sm:gap-6 md:gap-8">
 
