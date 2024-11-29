@@ -1,47 +1,73 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const educationData = [
   {
     year: "2022 - Present",
-    degree: "Bachlor in Science Computer Science with Cognitive Systems",
+    degree: "Bachelor of Science in Computer Science with Cognitive Systems",
     institution: "Sri Krishna Arts and Science College, Coimbatore",
   },
   {
     year: "2021 - 2022",
     degree: "Higher Secondary Education (12th)",
-    institution: "Sri GopalNaidu Hr Sec School, Coimbatore",
-  }
+    institution: "Sri Gopal Naidu Hr Sec School, Coimbatore",
+  },
+  {
+    year: "2019 - 2020",
+    degree: "Secondary Scholl Education (10th)",
+    institution: "Sri Gopal Naidu Hr Sec School, Coimbatore",
+  },
 ];
 
 const timelineVariants = {
-  hidden: { opacity: 0, x: -50 },
+  hidden: { opacity: 0, x: -50 }, // Initially hidden and shifted to the left
   visible: (i) => ({
     opacity: 1,
-    x: 0,
-    transition: { delay: i * 0.2, type: "spring", stiffness: 100 },
+    x: 0, // Moves into position
+    transition: { delay: i * 0.3, type: "spring", stiffness: 100 },
   }),
 };
 
+const hoverEffect = {
+  scale: 1.05, // Slightly enlarge on hover
+  backgroundColor: "#1e293b", // Change background color on hover
+  transition: { type: "spring", stiffness: 200 },
+};
+
 const Education = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true }); // Trigger animations only once
+
   return (
-    <div className="bg-slate-950 min-h-screen text-white flex flex-col items-center py-20">
-      <h1 className="text-4xl font-bold mb-10">Education</h1>
-      
+    <div
+      ref={ref}
+      className="flex flex-col items-center min-h-screen py-20 text-white bg-slate-950"
+    >
+      {/* Section Heading */}
+      <motion.h1
+        className="mb-10 text-4xl font-bold"
+        initial={{ opacity: 0, y: -30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        Education
+      </motion.h1>
+
       {/* Timeline Container */}
-      <div className="w-full max-w-4xl mx-auto px-4">
-        {/* Education items */}
+      <div className="w-full max-w-4xl px-4 mx-auto">
         {educationData.map((item, index) => (
           <motion.div
-            className="relative border-l border-gray-700 pl-8 mb-10"
+            className="relative pl-8 mb-10 border-l border-gray-700 hover:shadow-lg"
+            key={index}
             initial="hidden"
-            animate="visible"
+            animate={isInView ? "visible" : "hidden"}
             custom={index}
             variants={timelineVariants}
-            key={index}
+            whileHover={hoverEffect} // Hover effect
           >
-            {/* Timeline dot */}
-            <div className="absolute -left-3 w-6 h-6 bg-gray-400 rounded-full border-2 border-gray-700"></div>
-            
+            {/* Timeline Dot */}
+            <div className="absolute w-6 h-6 bg-gray-400 border-2 border-gray-700 rounded-full -left-3"></div>
+
             {/* Year */}
             <span className="text-xl font-semibold">{item.year}</span>
 

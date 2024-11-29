@@ -1,70 +1,87 @@
 import image from "../components/images/ai.jpg";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.9 }, // Initial state: slightly scaled down and invisible
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { type: "spring", stiffness: 40, duration: 1.5 }, // Adjusted duration for smoother effect
-  },
-};
+const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true }); // Trigger animations once
 
-const textVariants = {
-  hidden: { opacity: 0, y: 20 }, // Initial state: invisible and slightly moved down
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 50, duration: 1.9 }, // Smooth spring animation
-  },
-};
+  // Variants
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 40, duration: 1.5 },
+    },
+  };
 
-const About = () => { 
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 50, duration: 1.9 },
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3, // Stagger child animations
+        delayChildren: 0.3, // Initial delay before staggering
+      },
+    },
+  };
+
   return (
-    <div className="bg-slate-900 min-h-screen flex items-center">
-      {/* Container for both left and right sections */}
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20 flex flex-col md:flex-row justify-between">
-        
-        {/* Left side content */}
-        <motion.div 
-          className="md:w-1/2 text-white text-3xl sm:text-4xl md:text-5xl"
-          initial="hidden"   // Start with the hidden state
-          animate="visible"   // Animate to the visible state
-          variants={textVariants} // Use defined variants
+    <div
+      className="flex items-center min-h-screen bg-slate-900"
+      ref={ref} // Attach ref to observe this section
+    >
+      <motion.div
+        className="flex flex-col justify-between w-full px-4 py-10 mx-auto max-w-7xl md:px-8 md:py-20 md:flex-row"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"} // Trigger animation based on scroll
+        variants={containerVariants}
+      >
+        {/* Left Side */}
+        <motion.div
+          className="text-3xl text-white md:w-1/2 sm:text-4xl md:text-5xl"
+          variants={textVariants}
         >
-          <h1>Hello There</h1>
-          <div className="py-5 sm:py-10 text-base sm:text-lg md:text-xl">
-            A highly motivated Final-Year Student specializing in Full-Stack Development,
-            <br /> 
-            proficient in a wide range of front-end and back-end technologies. I am committed to delivering solutions 
-            that drive seamless user experiences and operational efficiency. 
-            With a keen interest in collaboration and team-driven environments, I am eager to apply my technical 
-            expertise to contribute to impactful projects that make a difference in the digital landscape.
+          <h1 className="text-4xl font-bold">Hello There</h1>
+          <div className="py-5 text-base sm:py-10 sm:text-lg md:text-xl">
+          I am a highly driven Final-Year Student specializing in Full-Stack Development, with proficiency in a broad spectrum of front-end and back-end technologies. I am dedicated to crafting solutions that enhance user experience and operational efficiency. Passionate about teamwork and collaboration, I am eager to leverage my technical skills to contribute to meaningful projects that positively impact the digital landscape.
           </div>
-
-          {/* Button with Framer Motion */}
           <motion.button
-            whileHover={{ scale: 1.1, backgroundColor: "#e5e5e5", color: "#000" }}
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: "#e5e5e5",
+              color: "#000",
+            }}
             whileTap={{ scale: 0.9 }}
-            className="text-lg sm:text-2xl md:text-3xl border border-gray-400 text-gray-400 px-4 sm:px-6 py-2 sm:py-3 rounded-lg 
-            hover:bg-gray-100 hover:text-black transition-colors duration-300"
+            className="px-4 py-2 text-lg text-gray-400 transition-colors duration-300 border border-gray-400 rounded-lg sm:text-2xl md:text-3xl sm:px-6 sm:py-3 hover:bg-gray-100 hover:text-black"
+            onClick={() => window.open("/resume.pdf", "_blank")}
           >
             Download Resume
           </motion.button>
         </motion.div>
 
-        {/* Right side content */}
-        <div className="md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
-          <motion.img 
-            src={image} 
+        {/* Right Side */}
+        <motion.div
+          className="flex items-center justify-center mt-8 md:w-1/2 md:mt-0"
+          variants={imageVariants}
+        >
+          <motion.img
+            src={image}
             alt="AI illustration"
-            className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 object-cover rounded-lg shadow-lg"
-            variants={imageVariants}
-            initial="hidden"   // Start with the hidden state
-            animate="visible"  // Animate to the visible state
+            className="object-cover w-64 h-64 rounded-lg shadow-lg sm:w-80 sm:h-80 md:w-96 md:h-96"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

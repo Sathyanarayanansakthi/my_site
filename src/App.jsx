@@ -4,12 +4,12 @@ import Footer from './components/Footer';
 import Skill from './components/Skill';
 import Education from "./components/Education";
 import Project from './components/Project';
-//import AboutMe from './components/AboutMe';
+//import Achievements from './components/Achivements';
 
 const App = () => {
   return (
  
-<div className="relative min-h-screen w-full bg-slate-950">
+<div className="relative w-full min-h-screen bg-slate-950">
 
  <div>
        <Navbar/>
