@@ -1,5 +1,5 @@
 import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase, FaDocker } from 'react-icons/fa'; 
-import { SiVercel, SiFirebase, SiExpress, SiTailwindcss } from 'react-icons/si'; 
+import { SiVercel, SiFirebase, SiExpress, SiTailwindcss,SiNextdotjs } from 'react-icons/si'; 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -50,6 +50,7 @@ const Skill = () => {
           { Icon: FaCss3Alt, color: "text-blue-500", name: "CSS" },
           { Icon: FaJs, color: "text-yellow-500", name: "JavaScript" },
           { Icon: FaReact, color: "text-blue-400", name: "React" },
+          {Icon:SiNextdotjs,color:"text-black-300",name:"Next JS" },
           { Icon: SiTailwindcss, color: "text-sky-400", name: "Tailwind CSS" },
           { Icon: SiExpress, color: "text-white", name: "Express JS" },
           { Icon: FaGitAlt, color: "text-orange-500", name: "Git" },
