@@ -1,173 +1,117 @@
-import { useState } from "react";
-import { SlSocialLinkedin } from "react-icons/sl";
-import { SiGithub, SiDevdotto, SiInstagram, SiBloglovin } from "react-icons/si";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Typography, Box } from "@mui/material";
+import { Menu as MenuIcon, LinkedIn, GitHub, Code, Instagram, Article } from "@mui/icons-material";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuAnchor, setMenuAnchor] = useState(null);
+  const menuOpen = Boolean(menuAnchor);
 
-  // Variants for mobile menu animation
-  const menuVariants = {
-    open: {
-      height: "auto",
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-    closed: {
-      height: 0,
-      opacity: 0,
-      transition: { duration: 0.5 },
-    },
+  const handleMenuOpen = (event) => {
+    setMenuAnchor(event.currentTarget);
   };
 
-  // Variants for menu item animations
-  const itemVariants = {
-    open: { opacity: 1, y: 0 },
-    closed: { opacity: 0, y: -20 },
+  const handleMenuClose = () => {
+    setMenuAnchor(null);
   };
+
+  const navItems = [
+    {
+      href: "https://linkedin.com/in/sathya-narayanans",
+      label: "LinkedIn",
+      icon: <LinkedIn />,
+    },
+    {
+      href: "https://github.com/Sathyanarayanansakthi",
+      label: "GitHub",
+      icon: <GitHub />,
+    },
+    {
+      href: "https://dly.to/sBFI3z051ds",
+      label: "Dev",
+      icon: <Code />,
+    },
+    {
+      href: "https://www.instagram.com/sathyanarayanansakthi",
+      label: "Instagram",
+      icon: <Instagram />,
+    },
+    {
+      href: "comingsoon",
+      label: "SN Blog",
+      icon: <Article />,
+    },
+  ];
 
   return (
-    <nav className="text-white bg-slate-850">
-      <div className="flex items-center justify-between px-6 py-4 sm:px-10 md:px-20">
+    <AppBar position="static" sx={{ backgroundColor: "black" }}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo */}
-        <motion.h6
-          className="text-2xl font-medium"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            ease: "easeInOut",
-            delay: 0.3,
-          }}
+        <Typography
+          variant="h6"
+          sx={{ fontWeight: "medium", color: "white" }}
         >
           Sathya Narayanan
-        </motion.h6>
-
-        {/* Hamburger Icon */}
-        <button
-          className="sm:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle Menu"
-        >
-          <motion.div
-            className="w-6 h-0.5 bg-white mb-1"
-            animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.div
-            className="w-6 h-0.5 bg-white mb-1"
-            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.div
-            className="w-6 h-0.5 bg-white"
-            animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
-          />
-        </button>
+        </Typography>
 
         {/* Desktop Navigation */}
-        <div className="hidden gap-4 sm:flex md:gap-6">
-          <a
-            href="https://linkedin.com/in/sathya-narayanans"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="transition-transform duration-300 hover:text-gray-400"
-          >
-            <SlSocialLinkedin />
-          </a>
-          <a
-            href="https://github.com/Sathyanarayanansakthi"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="transition-transform duration-300 hover:text-gray-400"
-          >
-            <SiGithub />
-          </a>
-          <a
-            href="https://dly.to/sBFI3z051ds"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Dev"
-            className="transition-transform duration-300 hover:text-gray-400"
-          >
-            <SiDevdotto />
-          </a>
-          <a
-            href="https://www.instagram.com/sathyanarayanansakthi"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="transition-transform duration-300 hover:text-gray-400"
-          >
-            <SiInstagram />
-          </a>
-          <a
-            href="comingsoon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="SN Blog"
-            className="transition-transform duration-300 hover:text-gray-400"
-          >
-            <SiBloglovin />
-          </a>
-        </div>
-      </div>
+        <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+          {navItems.map(({ href, label, icon }) => (
+            <IconButton
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              sx={{
+                color: "white",
+                "&:hover": { color: "gray" },
+              }}
+            >
+              {icon}
+            </IconButton>
+          ))}
+        </Box>
 
-      {/* Mobile Navigation */}
-      <motion.div
-        className="flex flex-col items-center gap-4 py-4 overflow-hidden bg-slate-800 sm:hidden"
-        initial={false}
-        animate={menuOpen ? "open" : "closed"}
-        variants={menuVariants}
+        {/* Mobile Menu Button */}
+        <IconButton
+          sx={{ display: { sm: "none" }, color: "white" }}
+          onClick={handleMenuOpen}
+          aria-label="Open menu"
+        >
+          <MenuIcon />
+        </IconButton>
+      </Toolbar>
+
+      {/* Mobile Navigation Menu */}
+      <Menu
+        anchorEl={menuAnchor}
+        open={menuOpen}
+        onClose={handleMenuClose}
+        PaperProps={{
+          sx: { backgroundColor: "slategray", color: "white" },
+        }}
       >
-        {[
-          {
-            href: "https://linkedin.com/in/sathya-narayanans",
-            label: "LinkedIn",
-            icon: <SlSocialLinkedin />,
-          },
-          {
-            href: "https://github.com/Sathyanarayanansakthi",
-            label: "GitHub",
-            icon: <SiGithub />,
-          },
-          {
-            href: "https://dly.to/sBFI3z051ds",
-            label: "Dev",
-            icon: <SiDevdotto />,
-          },
-          {
-            href: "https://www.instagram.com/sathyanarayanansakthi",
-            label: "Instagram",
-            icon: <SiInstagram />,
-          },
-          {
-            href: "comingsoon",
-            label: "SN Blog",
-            icon: <SiBloglovin />,
-          },
-        ].map(({ href, label, icon }) => (
-          <motion.a
+        {navItems.map(({ href, label, icon }) => (
+          <MenuItem
             key={label}
+            component="a"
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={label}
-            className="transition-transform duration-300 hover:text-gray-400"
-            variants={itemVariants}
+            onClick={handleMenuClose}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              "&:hover": { color: "gray" },
+            }}
           >
             {icon}
-          </motion.a>
+            {label}
+          </MenuItem>
         ))}
-      </motion.div>
-    </nav>
+      </Menu>
+    </AppBar>
   );
 };
 

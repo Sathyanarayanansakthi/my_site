@@ -1,7 +1,8 @@
-import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase, FaDocker } from 'react-icons/fa'; 
-import { SiVercel, SiFirebase, SiExpress, SiTailwindcss,SiNextdotjs } from 'react-icons/si'; 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useRef } from "react";
+import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase, FaDocker } from "react-icons/fa";
+import { SiVercel, SiFirebase, SiExpress, SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { motion, useInView } from "framer-motion";
+import { Box, Typography, Grid, Card, CardContent } from "@mui/material";
 
 const Skill = () => {
   const ref = useRef(null);
@@ -26,59 +27,87 @@ const Skill = () => {
     },
   };
 
+  const skills = [
+    { Icon: FaHtml5, color: "#E34F26", name: "HTML" },
+    { Icon: FaCss3Alt, color: "#1572B6", name: "CSS" },
+    { Icon: FaJs, color: "#F7DF1E", name: "JavaScript" },
+    { Icon: FaReact, color: "#61DAFB", name: "React" },
+    { Icon: SiNextdotjs, color: "#000000", name: "Next.js" },
+    { Icon: SiTailwindcss, color: "#06B6D4", name: "Tailwind CSS" },
+    { Icon: SiExpress, color: "#FFFFFF", name: "Express.js" },
+    { Icon: FaGitAlt, color: "#F05032", name: "Git" },
+    { Icon: FaGithub, color: "#181717", name: "GitHub" },
+    { Icon: FaDatabase, color: "#4CAF50", name: "MongoDB" },
+    { Icon: SiFirebase, color: "#FFCA28", name: "Firebase" },
+    { Icon: SiVercel, color: "#FFFFFF", name: "Vercel" },
+    { Icon: FaDocker, color: "#2496ED", name: "Docker" },
+  ];
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-20 bg-slate-950">
-      <motion.h1
-        className="mb-10 text-4xl font-bold text-white"
+    <Box
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: "rgb(15, 23, 42)", // Slate-950 equivalent
+        color: "white",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        py: 5,
+        px: 3,
+      }}
+    >
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        My Skills
-      </motion.h1>
-
-      <motion.div
-        className="grid grid-cols-2 gap-8 text-6xl text-white sm:grid-cols-4"
-        ref={ref} // Attach the ref to observe this section
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"} // Trigger animation based on visibility
-      >
-        {/* Skills List */}
-        {[ 
-          { Icon: FaHtml5, color: "text-red-500", name: "HTML" },
-          { Icon: FaCss3Alt, color: "text-blue-500", name: "CSS" },
-          { Icon: FaJs, color: "text-yellow-500", name: "JavaScript" },
-          { Icon: FaReact, color: "text-blue-400", name: "React" },
-          {Icon:SiNextdotjs,color:"text-black-300",name:"Next JS" },
-          { Icon: SiTailwindcss, color: "text-sky-400", name: "Tailwind CSS" },
-          { Icon: SiExpress, color: "text-white", name: "Express JS" },
-          { Icon: FaGitAlt, color: "text-orange-500", name: "Git" },
-          { Icon: FaGithub, color: "text-gray-400", name: "GitHub" },
-          { Icon: FaDatabase, color: "text-green-500", name: "MongoDB" },
-          { Icon: SiFirebase, color: "text-yellow-500", name: "Firebase" },
-          { Icon: SiVercel, color: "text-white", name: "Vercel" },
-          { Icon: FaDocker, color: "text-blue-500", name: "Docker" },
-        ].map((skill, index) => (
-          <motion.div 
-            key={index} 
-            className="flex flex-col items-center group" 
-            variants={itemVariants}
-          >
-            <skill.Icon
-              className={`group-hover:${skill.color} transition-transform duration-300 transform group-hover:scale-110`}
-            />
-            <p
-              className={`text-base mt-4 text-gray-400 group-hover:${skill.color} transition-colors duration-300`}
-            >
-              {skill.name}
-            </p>
-          </motion.div>
-        ))}
+        <Typography
+          variant="h3"
+          component="h1"
+          gutterBottom
+          sx={{ fontWeight: "bold", marginBottom: 4 }}
+        >
+          My Skills
+        </Typography>
       </motion.div>
 
-      <div className="pt-4 mt-6 text-sm text-center border-t border-gray-600" />
-    </div>
+      <motion.div
+        ref={ref}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        <Grid container spacing={4} justifyContent="center">
+          {skills.map((skill, index) => (
+            <Grid item xs={6} sm={4} md={3} key={index}>
+              <motion.div variants={itemVariants}>
+                <Card
+                  sx={{
+                    textAlign: "center",
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(10px)",
+                    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
+                    transition: "transform 0.3s",
+                    "&:hover": { transform: "scale(1.1)" },
+                  }}
+                >
+                  <CardContent>
+                    <skill.Icon
+                      size={50}
+                      style={{ color: skill.color, marginBottom: 10 }}
+                    />
+                    <Typography variant="subtitle1" color="white">
+                      {skill.name}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+      </motion.div>
+    </Box>
   );
 };
 

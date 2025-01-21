@@ -17,7 +17,7 @@ function Footer() {
   return (
     <motion.footer
       ref={ref}
-      className="py-10 text-white bg-slate-800"
+      className="py-10 text-white bg-black"
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"} // Trigger animation based on visibility

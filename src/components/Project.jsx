@@ -1,5 +1,6 @@
+import React, { useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useRef } from "react";
+import { Box, Typography, Card, CardContent, Container } from "@mui/material";
 
 const projectsData = [
   {
@@ -23,40 +24,51 @@ const projectsData = [
 ];
 
 const projectVariants = {
-  hidden: { opacity: 0, y: 50 }, // Initial state: hidden and moved down
+  hidden: { opacity: 0, y: 50 },
   visible: (i) => ({
     opacity: 1,
-    y: 0, // Final state: visible and at the original position
+    y: 0,
     transition: { delay: i * 0.2, type: "spring", stiffness: 100 },
   }),
 };
 
 const Projects = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Trigger animation once when in view
+  const isInView = useInView(ref, { once: true });
 
   return (
-    <div
+    <Box
       ref={ref}
-      className="flex flex-col items-center min-h-screen py-20 text-white bg-slate-900"
+      sx={{
+        minHeight: "100vh",
+        py: 5,
+        backgroundColor: "rgb(15, 23, 42)", // Slate-900 equivalent
+        color: "white",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
     >
       <AnimatePresence>
         {/* Title */}
-        <motion.h1
-          className="mb-10 text-4xl font-bold"
+        <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Projects
-        </motion.h1>
+          <Typography
+            variant="h3"
+            sx={{ fontWeight: "bold", marginBottom: 4 }}
+          >
+            Projects
+          </Typography>
+        </motion.div>
 
-        {/* Projects container */}
-        <div className="w-full max-w-4xl px-4 mx-auto">
+        {/* Projects Container */}
+        <Container maxWidth="md">
           {projectsData.map((project, index) => (
             <motion.div
-              className="p-6 mb-10 transition-colors duration-300 rounded-lg shadow-lg bg-slate-800 group hover:bg-slate-700"
               key={index}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -68,20 +80,45 @@ const Projects = () => {
                 boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
               }}
             >
-              <h2 className="text-2xl font-bold transition-colors duration-300 group-hover:text-teal-400">
-                {project.title}
-              </h2>
-              <p className="mt-3 text-lg text-gray-300">
-                {project.description || "Description not available."}
-              </p>
-              <p className="mt-2 text-sm text-gray-400">
-                Tech Stack: {project.techStack}
-              </p>
+              <Card
+                sx={{
+                  backgroundColor: "rgb(30, 41, 59)", // Slate-800 equivalent
+                  mb: 4,
+                  transition: "background-color 0.3s",
+                  "&:hover": { backgroundColor: "rgb(51, 65, 85)" }, // Slate-700 equivalent
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                }}
+              >
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: "bold",
+                      transition: "color 0.3s",
+                      "&:hover": { color: "teal" },
+                    }}
+                  >
+                    {project.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ marginTop: 2, color: "rgba(255, 255, 255, 0.8)" }}
+                  >
+                    {project.description || "Description not available."}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{ marginTop: 1, display: "block", color: "gray" }}
+                  >
+                    Tech Stack: {project.techStack}
+                  </Typography>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
-        </div>
+        </Container>
       </AnimatePresence>
-    </div>
+    </Box>
   );
 };
 
