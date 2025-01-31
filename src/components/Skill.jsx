@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt, FaGithub, FaDatabase, FaDocker } from "react-icons/fa";
 import { SiVercel, SiFirebase, SiExpress, SiTailwindcss, SiNextdotjs } from "react-icons/si";
 import { motion, useInView } from "framer-motion";
@@ -47,7 +47,7 @@ const Skill = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundColor: "rgb(15, 23, 42)", // Slate-950 equivalent
+        backgroundColor: "rgb(15, 23, 49)", // Slate-950 equivalent
         color: "white",
         display: "flex",
         flexDirection: "column",

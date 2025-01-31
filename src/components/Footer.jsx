@@ -17,7 +17,7 @@ function Footer() {
   return (
     <motion.footer
       ref={ref}
-      className="py-10 text-white bg-black"
+      className="py-10 text-gray-300 bg-gray-800" // Updated background color
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"} // Trigger animation based on visibility
@@ -27,13 +27,13 @@ function Footer() {
           className="flex flex-col justify-between md:flex-row"
           variants={containerVariants}
         >
-          {/* Contact Section */}
+          {/* Social Media Section */}
           <motion.div
             className="mb-6 md:mb-0"
             variants={containerVariants}
             whileHover={{ scale: 1.05 }}
           >
-            <h2 className="text-lg font-bold">Social Media</h2>
+            <h2 className="text-lg font-bold text-white">Social Media</h2>
             <ul className="mt-2 space-y-2 text-sm">
               <li>
                 <a
@@ -71,11 +71,8 @@ function Footer() {
           </motion.div>
 
           {/* Contact Us Section */}
-          <motion.div
-            variants={containerVariants}
-            whileHover={{ scale: 1.05 }}
-          >
-            <h2 className="text-lg font-bold">Contact Us</h2>
+          <motion.div variants={containerVariants} whileHover={{ scale: 1.05 }}>
+            <h2 className="text-lg font-bold text-white">Contact Us</h2>
             <p className="mt-2 text-sm">
               Email:{" "}
               <a

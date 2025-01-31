@@ -1,6 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Box, Typography, Container, Paper } from "@mui/material";
 
 const educationData = [
   {
@@ -29,28 +29,14 @@ const timelineVariants = {
   }),
 };
 
-const hoverEffect = {
-  scale: 1.05,
-  backgroundColor: "#1e293b",
-  transition: { type: "spring", stiffness: 200 },
-};
-
 const Education = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <Box
+    <div
       ref={ref}
-      sx={{
-        minHeight: "100vh",
-        py: 5,
-        backgroundColor: "rgb(15, 23, 42)", // Slate-950 equivalent
-        color: "white",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
+      className="min-h-screen py-20 bg-slate-950 text-white flex flex-col items-center"
     >
       {/* Section Heading */}
       <motion.div
@@ -58,13 +44,11 @@ const Education = () => {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <Typography variant="h3" sx={{ fontWeight: "bold", mb: 4 }}>
-          Education
-        </Typography>
+        <h3 className="text-3xl font-bold mb-10">Education</h3>
       </motion.div>
 
       {/* Timeline Container */}
-      <Container maxWidth="md">
+      <div className="max-w-3xl w-full">
         {educationData.map((item, index) => (
           <motion.div
             key={index}
@@ -72,57 +56,23 @@ const Education = () => {
             animate={isInView ? "visible" : "hidden"}
             custom={index}
             variants={timelineVariants}
-            whileHover={hoverEffect}
+            className="relative pl-10 mb-8 border-l-4 border-gray-500 hover:bg-slate-800 transition-all duration-300 p-5 rounded-lg"
           >
-            <Paper
-              elevation={3}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                position: "relative",
-                pl: 5,
-                mb: 4,
-                borderLeft: "4px solid gray",
-                transition: "background-color 0.3s, transform 0.3s",
-                "&:hover": { backgroundColor: "rgb(30, 41, 59)" }, // Slate-800 equivalent
-              }}
-            >
-              {/* Timeline Dot */}
-              <Box
-                sx={{
-                  width: "12px",
-                  height: "12px",
-                  backgroundColor: "gray",
-                  border: "2px solid #1e293b",
-                  borderRadius: "50%",
-                  position: "absolute",
-                  left: "-10px",
-                  top: "20px",
-                }}
-              />
+            {/* Timeline Dot */}
+            <div className="w-3 h-3 bg-gray-500 border-2 border-slate-900 rounded-full absolute left-[-6px] top-6"></div>
 
-              {/* Year */}
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: "bold", color: "gray", mb: 1 }}
-              >
-                {item.year}
-              </Typography>
+            {/* Year */}
+            <h6 className="text-gray-400 font-bold mb-2">{item.year}</h6>
 
-              {/* Degree and Institution */}
-              <Box>
-                <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-                  {item.degree}
-                </Typography>
-                <Typography variant="body1" sx={{ color: "rgba(255, 255, 255, 0.8)" }}>
-                  {item.institution}
-                </Typography>
-              </Box>
-            </Paper>
+            {/* Degree and Institution */}
+            <div>
+              <h5 className="text-xl font-bold">{item.degree}</h5>
+              <p className="text-gray-600">{item.institution}</p>
+            </div>
           </motion.div>
         ))}
-      </Container>
-    </Box>
+      </div>
+    </div>
   );
 };
 

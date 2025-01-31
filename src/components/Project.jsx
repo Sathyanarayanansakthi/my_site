@@ -1,8 +1,13 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Box, Typography, Card, CardContent, Container } from "@mui/material";
 
 const projectsData = [
+  {
+    title: "Social Network ",
+    description:
+      "A Platform for Students and Academic Scholars and Researchers.",
+    techStack: "React.js, Express.js, Node.js, MongoDB, Tailwind CSS, Material UI, JWT, Passport JS",
+  },
   {
     title: "Startup Portal for AYUSH",
     description:
@@ -13,7 +18,7 @@ const projectsData = [
     title: "Auto Assist Hub",
     description:
       "A web application platform designed to bridge the gap between vehicle owners and service providers, offering advanced tools for mechanics and shop owners to streamline operations.",
-    techStack: "React, Tailwindcss, Firebase",
+    techStack: "React, Tailwind CSS, Firebase",
   },
   {
     title: "Smart India Hackathon Project 2K23",
@@ -37,18 +42,7 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <Box
-      ref={ref}
-      sx={{
-        minHeight: "100vh",
-        py: 5,
-        backgroundColor: "rgb(15, 23, 42)", // Slate-900 equivalent
-        color: "white",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div ref={ref} className="min-h-screen py-10 bg-gray-900 text-white flex flex-col items-center">
       <AnimatePresence>
         {/* Title */}
         <motion.div
@@ -57,16 +51,11 @@ const Projects = () => {
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <Typography
-            variant="h3"
-            sx={{ fontWeight: "bold", marginBottom: 4 }}
-          >
-            Projects
-          </Typography>
+          <h3 className="text-4xl font-bold mb-6">Projects</h3>
         </motion.div>
 
         {/* Projects Container */}
-        <Container maxWidth="md">
+        <div className="max-w-3xl w-full">
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
@@ -75,50 +64,17 @@ const Projects = () => {
               exit={{ opacity: 0, y: 50 }}
               custom={index}
               variants={projectVariants}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
-              }}
+              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)" }}
+              className="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-lg mb-6 transition-colors"
             >
-              <Card
-                sx={{
-                  backgroundColor: "rgb(30, 41, 59)", // Slate-800 equivalent
-                  mb: 4,
-                  transition: "background-color 0.3s",
-                  "&:hover": { backgroundColor: "rgb(51, 65, 85)" }, // Slate-700 equivalent
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: "bold",
-                      transition: "color 0.3s",
-                      "&:hover": { color: "teal" },
-                    }}
-                  >
-                    {project.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{ marginTop: 2, color: "rgba(255, 255, 255, 0.8)" }}
-                  >
-                    {project.description || "Description not available."}
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    sx={{ marginTop: 1, display: "block", color: "gray" }}
-                  >
-                    Tech Stack: {project.techStack}
-                  </Typography>
-                </CardContent>
-              </Card>
+              <h5 className="text-2xl font-bold hover:text-teal-400 transition-colors">{project.title}</h5>
+              <p className="mt-2 text-gray-300">{project.description || "Description not available."}</p>
+              <p className="mt-2 text-sm text-gray-500">Tech Stack: {project.techStack}</p>
             </motion.div>
           ))}
-        </Container>
+        </div>
       </AnimatePresence>
-    </Box>
+    </div>
   );
 };
 
