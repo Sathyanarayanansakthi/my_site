@@ -37,7 +37,7 @@ const Navbar = () => {
       icon: <Instagram />,
     },
     {
-      href: "comingsoon",
+      href: "https://snblog.vercel.app/",
       label: "SN Blog",
       icon: <Article />,
     },
