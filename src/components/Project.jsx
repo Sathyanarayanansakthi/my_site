@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const projectsData = [
   {
-    title: "Social Network ",
+    title: "Connectify (Social Network) ",
     description:
       "A Platform for Students and Academic Scholars and Researchers.",
     techStack: "React.js, Express.js, Node.js, MongoDB, Tailwind CSS, Material UI, JWT, Passport JS",
