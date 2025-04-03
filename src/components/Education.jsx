@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 const educationData = [
   {
-    year: "2022 - Present",
+    year: "2022 - 2025",
     degree: "Bachelor of Science in Computer Science with Cognitive Systems",
     institution: "Sri Krishna Arts and Science College, Coimbatore",
   },
