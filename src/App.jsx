@@ -16,7 +16,7 @@ const App = () => {
        <Education />
        <Footer/>
  </div>
- </div>
+ 
 
  
   )
