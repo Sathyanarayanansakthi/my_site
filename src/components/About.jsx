@@ -43,7 +43,7 @@ const About = () => {
       style={{
         backgroundColor: "#0f172a",
         backgroundImage: `
-          linear-gradient(to right, #0f172a, #1e293b, #334155),
+          linear-gradient(to right, #0a0a0a, #d1d5db),
           radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0)
         `,
         backgroundSize: "100% 100%, 22px 22px",
@@ -99,4 +99,3 @@ const About = () => {
 };
 
 export default About;
-
