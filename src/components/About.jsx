@@ -54,9 +54,7 @@ const About = () => {
         >
           <h1 className="text-4xl font-bold">Hello There</h1>
           <div className="py-5 text-base sm:py-10 sm:text-lg md:text-xl">
-          I am a highly driven Final-Year Student specializing in Full-Stack Development, with proficiency in a broad spectrum of front-end and back-end technologies. I am dedicated to crafting solutions that enhance user experience and operational efficiency. Passionate about teamwork and collaboration, I am eager to leverage my technical skills to contribute to meaningful projects that positively impact the digital landscape.
-          </div>
-          <motion.button
+I am a highly driven Full-Stack Developer with proficiency across a wide range of front-end and back-end technologies. I am committed to building solutions that deliver seamless user experiences and optimize operational efficiency. Passionate about teamwork and collaboration, I strive to contribute to impactful projects that shape and elevate the digital landscape.
             whileHover={{
               scale: 1.1,
               backgroundColor: "#e5e5e5",
