@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Trigger animations once
+  const isInView = useInView(ref, { once: true });
 
   // Animation variants
   const imageVariants = {
@@ -41,12 +41,13 @@ const About = () => {
       ref={ref}
       className="flex items-center min-h-screen text-white"
       style={{
-        backgroundColor: "#0f172a", // fallback
+        backgroundColor: "#0f172a",
         backgroundImage: `
-          linear-gradient(145deg, #0f172a, #1e293b),
-          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0)
+          linear-gradient(to right, #0f172a, #1e293b, #334155),
+          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0)
         `,
-        backgroundSize: "100% 100%, 20px 20px",
+        backgroundSize: "100% 100%, 22px 22px",
+        backgroundBlendMode: "overlay",
       }}
     >
       <motion.div
