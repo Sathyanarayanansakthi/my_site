@@ -4,9 +4,8 @@ import { useRef } from "react";
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Trigger animations once
+  const isInView = useInView(ref, { once: true });
 
-  // Animation variants
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
@@ -38,20 +37,17 @@ const About = () => {
 
   return (
     <div
-      className="flex items-center min-h-screen bg-slate-900"
       ref={ref}
+      className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-800 to-blue-800 flex items-center justify-center"
     >
       <motion.div
-        className="flex flex-col justify-between w-full px-4 py-10 mx-auto max-w-7xl md:px-8 md:py-20 md:flex-row"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
+        className="grid max-w-7xl grid-cols-1 gap-10 px-4 py-10 md:grid-cols-2 md:px-8 md:py-20"
       >
-        {/* Left Side */}
-        <motion.div
-          className="md:w-1/2"
-          variants={textVariants}
-        >
+        {/* Left - Text */}
+        <motion.div variants={textVariants} className="flex flex-col justify-center">
           <h1 className="text-4xl font-bold text-white md:text-5xl">
             Hello There
           </h1>
@@ -63,7 +59,6 @@ const About = () => {
             collaboration, I strive to contribute to impactful projects that
             shape and elevate the digital landscape.
           </p>
-
           <motion.button
             whileHover={{
               scale: 1.1,
@@ -78,15 +73,15 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Right Side */}
+        {/* Right - Image */}
         <motion.div
-          className="flex items-center justify-center mt-8 md:w-1/2 md:mt-0"
           variants={imageVariants}
+          className="flex items-center justify-center"
         >
           <motion.img
             src={image}
             alt="AI illustration"
-            className="object-cover w-64 h-64 rounded-lg shadow-lg sm:w-80 sm:h-80 md:w-96 md:h-96"
+            className="object-cover w-64 h-64 rounded-xl shadow-2xl sm:w-80 sm:h-80 md:w-96 md:h-96"
           />
         </motion.div>
       </motion.div>
