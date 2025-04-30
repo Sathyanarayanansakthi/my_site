@@ -68,7 +68,7 @@ const Skill = () => {
         minHeight: "100vh",
         backgroundColor: "#0f172a",
         backgroundImage: `
-          linear-gradient(to left, #1e293b, #0f172a),
+          linear-gradient(to left, #0a0a0a, #d1d5db),
           linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
         `,
@@ -143,4 +143,3 @@ const Skill = () => {
 };
 
 export default Skill;
-
