@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 
+// Projects Data
 const projectsData = [
   {
     title: "Connectify (Social Network) ",
@@ -28,6 +29,7 @@ const projectsData = [
   },
 ];
 
+// Animation Variants
 const projectVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i) => ({
@@ -37,12 +39,16 @@ const projectVariants = {
   }),
 };
 
+// Projects Component
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div ref={ref} className="min-h-screen py-10 bg-gray-900 text-white flex flex-col items-center">
+    <div
+      ref={ref}
+      className="min-h-screen py-10 bg-gradient-to-b from-gray-900 to-gray-700 text-white flex flex-col items-center"
+    >
       <AnimatePresence>
         {/* Title */}
         <motion.div
