@@ -1,7 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
+// Education Data
 const educationData = [
   {
     year: "2022 - 2025",
@@ -20,6 +20,7 @@ const educationData = [
   },
 ];
 
+// Animation Variants for Timeline
 const timelineVariants = {
   hidden: { opacity: 0, x: -50 },
   visible: (i) => ({
@@ -29,6 +30,7 @@ const timelineVariants = {
   }),
 };
 
+// Education Component
 const Education = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -36,7 +38,7 @@ const Education = () => {
   return (
     <div
       ref={ref}
-      className="min-h-screen py-20 bg-slate-950 text-white flex flex-col items-center"
+      className="min-h-screen py-20 bg-gradient-to-b from-slate-950 to-slate-700 text-white flex flex-col items-center"
     >
       {/* Section Heading */}
       <motion.div
@@ -77,3 +79,4 @@ const Education = () => {
 };
 
 export default Education;
+
