@@ -61,9 +61,9 @@ const EducationAndExperience = () => {
       </motion.div>
 
       {/* Timeline Container */}
-      <div className="max-w-5xl w-full">
+      <div className="max-w-3xl w-full">
         {/* Education Timeline */}
-        <div className="flex justify-between items-center">
+        <div className="relative">
           {educationData.map((item, index) => (
             <motion.div
               key={index}
@@ -71,14 +71,16 @@ const EducationAndExperience = () => {
               animate={isInView ? "visible" : "hidden"}
               custom={index}
               variants={timelineVariants}
-              className="relative flex flex-col items-center text-center mb-10"
+              className="relative pl-10 mb-8 border-l-4 border-gray-500 hover:bg-slate-800 transition-all duration-300 p-5 rounded-lg"
             >
               {/* Timeline Dot */}
-              <div className="w-5 h-5 bg-gray-500 border-2 border-slate-900 rounded-full"></div>
+              <div className="w-3 h-3 bg-gray-500 border-2 border-slate-900 rounded-full absolute left-[-6px] top-6"></div>
+
               {/* Year */}
-              <h6 className="text-gray-400 font-bold mt-2">{item.year}</h6>
+              <h6 className="text-gray-400 font-bold mb-2">{item.year}</h6>
+
               {/* Degree and Institution */}
-              <div className="text-white mt-2">
+              <div>
                 <h5 className="text-xl font-bold">{item.degree}</h5>
                 <p className="text-gray-600">{item.institution}</p>
               </div>
@@ -87,7 +89,7 @@ const EducationAndExperience = () => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="flex justify-between items-center mt-16">
+        <div className="relative mt-16">
           {experienceData.map((item, index) => (
             <motion.div
               key={index}
@@ -95,14 +97,16 @@ const EducationAndExperience = () => {
               animate={isInView ? "visible" : "hidden"}
               custom={index}
               variants={timelineVariants}
-              className="relative flex flex-col items-center text-center mb-10"
+              className="relative pl-10 mb-8 border-l-4 border-gray-500 hover:bg-slate-800 transition-all duration-300 p-5 rounded-lg"
             >
               {/* Timeline Dot */}
-              <div className="w-5 h-5 bg-gray-500 border-2 border-slate-900 rounded-full"></div>
+              <div className="w-3 h-3 bg-gray-500 border-2 border-slate-900 rounded-full absolute left-[-6px] top-6"></div>
+
               {/* Duration */}
-              <h6 className="text-gray-400 font-bold mt-2">{item.duration}</h6>
+              <h6 className="text-gray-400 font-bold mb-2">{item.duration}</h6>
+
               {/* Role and Company */}
-              <div className="text-white mt-2">
+              <div>
                 <h5 className="text-xl font-bold">{item.role} - {item.company}</h5>
                 <p className="text-gray-600">{item.description}</p>
               </div>
@@ -115,4 +119,3 @@ const EducationAndExperience = () => {
 };
 
 export default EducationAndExperience;
-
