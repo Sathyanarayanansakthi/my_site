@@ -6,7 +6,7 @@ const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true }); // Trigger animations once
 
-  // Variants
+  // Animation variants
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
@@ -30,8 +30,8 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3, // Stagger child animations
-        delayChildren: 0.3, // Initial delay before staggering
+        staggerChildren: 0.3,
+        delayChildren: 0.3,
       },
     },
   };
@@ -39,22 +39,32 @@ const About = () => {
   return (
     <div
       className="flex items-center min-h-screen bg-slate-900"
-      ref={ref} // Attach ref to observe this section
+      ref={ref}
     >
       <motion.div
         className="flex flex-col justify-between w-full px-4 py-10 mx-auto max-w-7xl md:px-8 md:py-20 md:flex-row"
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"} // Trigger animation based on scroll
+        animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         {/* Left Side */}
         <motion.div
-          className="text-3xl text-white md:w-1/2 sm:text-4xl md:text-5xl"
+          className="md:w-1/2"
           variants={textVariants}
         >
-          <h1 className="text-4xl font-bold">Hello There</h1>
-          <div className="py-5 text-base sm:py-10 sm:text-lg md:text-xl">
-I am a highly driven Full-Stack Developer with proficiency across a wide range of front-end and back-end technologies. I am committed to building solutions that deliver seamless user experiences and optimize operational efficiency. Passionate about teamwork and collaboration, I strive to contribute to impactful projects that shape and elevate the digital landscape.
+          <h1 className="text-4xl font-bold text-white md:text-5xl">
+            Hello There
+          </h1>
+          <p className="py-5 text-base text-gray-300 sm:py-10 sm:text-lg md:text-xl">
+            I am a highly driven Full-Stack Developer with proficiency across a
+            wide range of front-end and back-end technologies. I am committed to
+            building solutions that deliver seamless user experiences and
+            optimize operational efficiency. Passionate about teamwork and
+            collaboration, I strive to contribute to impactful projects that
+            shape and elevate the digital landscape.
+          </p>
+
+          <motion.button
             whileHover={{
               scale: 1.1,
               backgroundColor: "#e5e5e5",
@@ -85,3 +95,4 @@ I am a highly driven Full-Stack Developer with proficiency across a wide range o
 };
 
 export default About;
+
