@@ -7,8 +7,6 @@ import Project from './components/Project';
 
 const App = () => {
   return (
- 
-<div className="relative w-full min-h-screen bg-slate-950">
 
  <div>
        <Navbar/>
