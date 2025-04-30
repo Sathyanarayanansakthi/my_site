@@ -4,8 +4,9 @@ import { useRef } from "react";
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true }); // Trigger animations once
 
+  // Animation variants
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
@@ -38,19 +39,25 @@ const About = () => {
   return (
     <div
       ref={ref}
-      className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-800 to-blue-800 flex items-center justify-center"
+      className="flex items-center min-h-screen text-white"
+      style={{
+        backgroundColor: "#0f172a", // fallback
+        backgroundImage: `
+          linear-gradient(145deg, #0f172a, #1e293b),
+          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0)
+        `,
+        backgroundSize: "100% 100%, 20px 20px",
+      }}
     >
       <motion.div
+        className="flex flex-col justify-between w-full px-4 py-10 mx-auto max-w-7xl md:px-8 md:py-20 md:flex-row"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
-        className="grid max-w-7xl grid-cols-1 gap-10 px-4 py-10 md:grid-cols-2 md:px-8 md:py-20"
       >
-        {/* Left - Text */}
-        <motion.div variants={textVariants} className="flex flex-col justify-center">
-          <h1 className="text-4xl font-bold text-white md:text-5xl">
-            Hello There
-          </h1>
+        {/* Left Side */}
+        <motion.div className="md:w-1/2" variants={textVariants}>
+          <h1 className="text-4xl font-bold md:text-5xl">Hello There</h1>
           <p className="py-5 text-base text-gray-300 sm:py-10 sm:text-lg md:text-xl">
             I am a highly driven Full-Stack Developer with proficiency across a
             wide range of front-end and back-end technologies. I am committed to
@@ -59,6 +66,7 @@ const About = () => {
             collaboration, I strive to contribute to impactful projects that
             shape and elevate the digital landscape.
           </p>
+
           <motion.button
             whileHover={{
               scale: 1.1,
@@ -73,15 +81,15 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Right - Image */}
+        {/* Right Side */}
         <motion.div
+          className="flex items-center justify-center mt-8 md:w-1/2 md:mt-0"
           variants={imageVariants}
-          className="flex items-center justify-center"
         >
           <motion.img
             src={image}
             alt="AI illustration"
-            className="object-cover w-64 h-64 rounded-xl shadow-2xl sm:w-80 sm:h-80 md:w-96 md:h-96"
+            className="object-cover w-64 h-64 rounded-lg shadow-lg sm:w-80 sm:h-80 md:w-96 md:h-96"
           />
         </motion.div>
       </motion.div>
