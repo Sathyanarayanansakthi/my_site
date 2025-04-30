@@ -66,12 +66,14 @@ const Skill = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundColor: "#0f172a", // fallback
+        backgroundColor: "#0f172a",
         backgroundImage: `
-          linear-gradient(145deg, #0f172a, #1e293b),
-          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0)
+          linear-gradient(135deg, #0f172a 0%, #1e293b 100%),
+          linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
         `,
-        backgroundSize: "100% 100%, 20px 20px",
+        backgroundSize: "cover, 80px 80px, 80px 80px",
+        backgroundBlendMode: "overlay",
         color: "white",
         display: "flex",
         flexDirection: "column",
@@ -109,11 +111,16 @@ const Skill = () => {
                 <Card
                   sx={{
                     textAlign: "center",
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    backdropFilter: "blur(10px)",
-                    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
-                    transition: "transform 0.3s",
-                    "&:hover": { transform: "scale(1.1)" },
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    backdropFilter: "blur(12px)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    borderRadius: "16px",
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                      boxShadow: "0 15px 40px rgba(0, 0, 0, 0.4)",
+                    },
                   }}
                 >
                   <CardContent>
@@ -136,3 +143,4 @@ const Skill = () => {
 };
 
 export default Skill;
+
