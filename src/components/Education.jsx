@@ -16,7 +16,18 @@ const educationData = [
   {
     year: "2019 - 2020",
     degree: "Secondary School Education (10th)",
-    institution: "Sri Gopal Naidu Hr Sec School, Coimbatore",
+    institution: "Sri Gopal Naidu Hr Sec School, Coimbore",
+  },
+];
+
+// Experience Data
+const experienceData = [
+  {
+    company: "Metaphor Hub (Freelancer)",
+    role: "Freelance Developer",
+    duration: "Dec 2021 - Jul 2022",
+    description:
+      "Worked as a freelance developer on various web development projects. Focused on building dynamic websites using React, Node.js, and MongoDB for various clients.",
   },
 ];
 
@@ -30,8 +41,8 @@ const timelineVariants = {
   }),
 };
 
-// Education Component
-const Education = () => {
+// Education and Experience Component
+const EducationAndExperience = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -46,37 +57,62 @@ const Education = () => {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h3 className="text-3xl font-bold mb-10">Education</h3>
+        <h3 className="text-3xl font-bold mb-10">Education & Experience</h3>
       </motion.div>
 
       {/* Timeline Container */}
-      <div className="max-w-3xl w-full">
-        {educationData.map((item, index) => (
-          <motion.div
-            key={index}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            custom={index}
-            variants={timelineVariants}
-            className="relative pl-10 mb-8 border-l-4 border-gray-500 hover:bg-slate-800 transition-all duration-300 p-5 rounded-lg"
-          >
-            {/* Timeline Dot */}
-            <div className="w-3 h-3 bg-gray-500 border-2 border-slate-900 rounded-full absolute left-[-6px] top-6"></div>
+      <div className="max-w-5xl w-full">
+        {/* Education Timeline */}
+        <div className="flex justify-between items-center">
+          {educationData.map((item, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={index}
+              variants={timelineVariants}
+              className="relative flex flex-col items-center text-center mb-10"
+            >
+              {/* Timeline Dot */}
+              <div className="w-5 h-5 bg-gray-500 border-2 border-slate-900 rounded-full"></div>
+              {/* Year */}
+              <h6 className="text-gray-400 font-bold mt-2">{item.year}</h6>
+              {/* Degree and Institution */}
+              <div className="text-white mt-2">
+                <h5 className="text-xl font-bold">{item.degree}</h5>
+                <p className="text-gray-600">{item.institution}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Year */}
-            <h6 className="text-gray-400 font-bold mb-2">{item.year}</h6>
-
-            {/* Degree and Institution */}
-            <div>
-              <h5 className="text-xl font-bold">{item.degree}</h5>
-              <p className="text-gray-600">{item.institution}</p>
-            </div>
-          </motion.div>
-        ))}
+        {/* Experience Timeline */}
+        <div className="flex justify-between items-center mt-16">
+          {experienceData.map((item, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={index}
+              variants={timelineVariants}
+              className="relative flex flex-col items-center text-center mb-10"
+            >
+              {/* Timeline Dot */}
+              <div className="w-5 h-5 bg-gray-500 border-2 border-slate-900 rounded-full"></div>
+              {/* Duration */}
+              <h6 className="text-gray-400 font-bold mt-2">{item.duration}</h6>
+              {/* Role and Company */}
+              <div className="text-white mt-2">
+                <h5 className="text-xl font-bold">{item.role} - {item.company}</h5>
+                <p className="text-gray-600">{item.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Education;
+export default EducationAndExperience;
 
