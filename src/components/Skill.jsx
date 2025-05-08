@@ -19,7 +19,6 @@ import {
   SiNextdotjs,
 } from "react-icons/si";
 import { motion, useInView } from "framer-motion";
-import { Box, Typography, Grid, Card, CardContent } from "@mui/material";
 
 const Skill = () => {
   const ref = useRef(null);
@@ -63,84 +62,44 @@ const Skill = () => {
   ];
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        backgroundColor: "#0f172a",
-        backgroundImage: `
-          linear-gradient(to left, #0a0a0a, #d1d5db),
-          linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
-        `,
-        backgroundSize: "cover, 80px 80px, 80px 80px",
-        backgroundBlendMode: "overlay",
-        color: "white",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        py: 5,
-        px: 3,
-      }}
+    <section
+      className="min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 flex flex-col items-center justify-center py-20 px-5"
     >
-      <motion.div
+      <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
+        className="text-4xl font-bold text-white mb-12"
       >
-        <Typography
-          variant="h3"
-          component="h1"
-          gutterBottom
-          sx={{ fontWeight: "bold", marginBottom: 4 }}
-        >
-          My Skills
-        </Typography>
-      </motion.div>
+        My Skills
+      </motion.h1>
 
       <motion.div
         ref={ref}
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
       >
-        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} justifyContent="center">
-          {skills.map((skill, index) => (
-            <Grid item xs={6} sm={4} md={3} key={index}>
-              <motion.div variants={itemVariants}>
-                <Card
-                  sx={{
-                    textAlign: "center",
-                    backgroundColor: "rgba(255, 255, 255, 0.05)",
-                    backdropFilter: "blur(12px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    borderRadius: "16px",
-                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
-                    transition: "transform 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "scale(1.1)",
-                      boxShadow: "0 15px 40px rgba(0, 0, 0, 0.4)",
-                    },
-                  }}
-                >
-                  <CardContent>
-                    <skill.Icon
-                      size={50}
-                      style={{ color: skill.color, marginBottom: 10 }}
-                    />
-                    <Typography variant="subtitle1" color="white">
-                      {skill.name}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
+        {skills.map((skill, index) => (
+          <motion.div
+            variants={itemVariants}
+            key={index}
+            className="flex justify-center items-center"
+          >
+            <div className="bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300">
+              <div className="flex justify-center mb-4">
+                <skill.Icon size={50} style={{ color: skill.color }} />
+              </div>
+              <p className="text-white text-center font-medium">{skill.name}</p>
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
-    </Box>
+    </section>
   );
 };
 
 export default Skill;
+
 
