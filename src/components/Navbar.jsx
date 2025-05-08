@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Typography, Box } from "@mui/material";
 import { Menu as MenuIcon, LinkedIn, GitHub, Code, Instagram, Article } from "@mui/icons-material";
@@ -47,10 +46,7 @@ const Navbar = () => {
     <AppBar position="static" sx={{ backgroundColor: "rgb(30, 41, 59)" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo */}
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: "medium", color: "white" }}
-        >
+        <Typography variant="h6" sx={{ fontWeight: "medium", color: "white" }}>
           Sathya Narayanan
         </Typography>
 
@@ -65,8 +61,9 @@ const Navbar = () => {
               aria-label={label}
               sx={{
                 color: "white",
-                "&:hover": { color: "" },
+                "&:hover": { color: "gray" }, // Adding hover effect
               }}
+              title={label} // Title for accessibility
             >
               {icon}
             </IconButton>
@@ -106,6 +103,7 @@ const Navbar = () => {
               gap: 1,
               "&:hover": { color: "gray" },
             }}
+            title={label} // Title for accessibility
           >
             {icon}
             {label}
@@ -117,3 +115,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
