@@ -62,9 +62,7 @@ const Skill = () => {
   ];
 
   return (
-    <section
-      className="min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 flex flex-col items-center justify-center py-20 px-5"
-    >
+    <section className="min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 flex flex-col items-center justify-center py-20 px-5">
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -87,11 +85,12 @@ const Skill = () => {
             key={index}
             className="flex justify-center items-center"
           >
-            <div className="bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300">
-              <div className="flex justify-center mb-4">
+            <div className="bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 opacity-30 rounded-lg"></div>
+              <div className="flex justify-center mb-4 relative z-10">
                 <skill.Icon size={50} style={{ color: skill.color }} />
               </div>
-              <p className="text-white text-center font-medium">{skill.name}</p>
+              <p className="text-white text-center font-medium z-10">{skill.name}</p>
             </div>
           </motion.div>
         ))}
