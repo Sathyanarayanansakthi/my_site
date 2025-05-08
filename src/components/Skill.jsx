@@ -104,7 +104,7 @@ const Skill = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} justifyContent="center">
           {skills.map((skill, index) => (
             <Grid item xs={6} sm={4} md={3} key={index}>
               <motion.div variants={itemVariants}>
@@ -143,3 +143,4 @@ const Skill = () => {
 };
 
 export default Skill;
+
