@@ -1,30 +1,32 @@
 import { useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { FaLaptopCode } from "react-icons/fa";
 
 // Projects Data
 const projectsData = [
   {
-    title: "Connectify (Social Network) ",
+    title: "Connectify (Social Network)",
     description:
-      "A Platform for Students and Academic Scholars and Researchers.",
-    techStack: "React.js, Express.js, Node.js, MongoDB, Tailwind CSS, Material UI, JWT, Passport JS",
+      "A platform for students, scholars, and researchers to collaborate and share academic insights.",
+    techStack:
+      "React.js, Express.js, Node.js, MongoDB, Tailwind CSS, Material UI, JWT, Passport.js",
   },
   {
     title: "Startup Portal for AYUSH",
     description:
-      "A startup management platform for AYUSH to assist in tracking, managing, and funding initiatives across various healthcare startups.",
+      "A portal to manage startups under AYUSH, streamlining tracking, management, and funding.",
     techStack: "React.js, MongoDB, Express.js",
   },
   {
     title: "Auto Assist Hub",
     description:
-      "A web application platform designed to bridge the gap between vehicle owners and service providers, offering advanced tools for mechanics and shop owners to streamline operations.",
+      "A web platform connecting vehicle owners with service providers, enabling shops to streamline operations.",
     techStack: "React, Tailwind CSS, Firebase",
   },
   {
-    title: "Smart India Hackathon Project 2K23",
+    title: "Smart India Hackathon 2023",
     description:
-      "A collaborative project to solve real-world problems using innovative technical solutions, developed during the Smart India Hackathon competition.",
+      "Innovative real-world problem-solving project built during the SIH Hackathon.",
     techStack: "JavaScript, Python, SQL",
   },
 ];
@@ -39,7 +41,7 @@ const projectVariants = {
   }),
 };
 
-// Projects Component
+// Component
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -47,35 +49,37 @@ const Projects = () => {
   return (
     <div
       ref={ref}
-      className="min-h-screen py-10 bg-gradient-to-b from-gray-900 to-gray-700 text-white flex flex-col items-center"
+      className="min-h-screen py-16 px-6 sm:px-10 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
     >
       <AnimatePresence>
-        {/* Title */}
-        <motion.div
+        <motion.h3
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl font-bold text-center mb-12 text-teal-300"
         >
-          <h3 className="text-4xl font-bold mb-6">Projects</h3>
-        </motion.div>
+          Projects
+        </motion.h3>
 
-        {/* Projects Container */}
-        <div className="max-w-3xl w-full">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              exit={{ opacity: 0, y: 50 }}
               custom={index}
               variants={projectVariants}
-              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)" }}
-              className="bg-gray-800 hover:bg-gray-700 p-6 rounded-xl shadow-lg mb-6 transition-colors"
+              whileHover={{ scale: 1.03 }}
+              className="relative border border-teal-500/30 bg-white/5 backdrop-blur-xl p-6 rounded-2xl shadow-xl transition-transform hover:border-teal-400"
             >
-              <h5 className="text-2xl font-bold hover:text-teal-400 transition-colors">{project.title}</h5>
-              <p className="mt-2 text-gray-300">{project.description || "Description not available."}</p>
-              <p className="mt-2 text-sm text-gray-500">Tech Stack: {project.techStack}</p>
+              <div className="flex items-center gap-4 mb-3">
+                <FaLaptopCode className="text-teal-300 text-3xl" />
+                <h5 className="text-2xl font-semibold text-white">{project.title}</h5>
+              </div>
+              <p className="text-gray-300 mb-3">{project.description}</p>
+              <p className="text-sm text-teal-200">
+                <span className="font-semibold">Tech Stack:</span> {project.techStack}
+              </p>
             </motion.div>
           ))}
         </div>
