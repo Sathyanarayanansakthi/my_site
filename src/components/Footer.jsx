@@ -1,101 +1,97 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { FaGithub, FaInstagram, FaLinkedin, FaDev } from "react-icons/fa";
 
 function Footer() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Animation triggers only once when in view
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 }, // Initially hidden and shifted down
-    visible: {
-      opacity: 1,
-      y: 0, // Fully visible and in the original position
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
-  return (
-    <motion.footer
-      ref={ref}
-      className="py-10 text-gray-300 bg-gray-800" // Updated background color
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"} // Trigger animation based on visibility
-    >
-      <div className="px-4 mx-auto max-w-7xl md:px-8">
-        <motion.div
-          className="flex flex-col justify-between md:flex-row"
-          variants={containerVariants}
-        >
-          {/* Social Media Section */}
-          <motion.div
-            className="mb-6 md:mb-0"
-            variants={containerVariants}
-            whileHover={{ scale: 1.05 }}
-          >
-            <h2 className="text-lg font-bold text-white">Social Media</h2>
-            <ul className="mt-2 space-y-2 text-sm">
-              <li>
-                <a
-                  href="https://linkedin.com/in/sathya-narayanans"
-                  className="transition-colors duration-300 hover:text-indigo-400"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/sathyanarayanansakthi?igsh=MWFzbTZzemNpeXppZw=="
-                  className="transition-colors duration-300 hover:text-indigo-400"
-                >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/Sathyanarayanansakthi"
-                  className="transition-colors duration-300 hover:text-indigo-400"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://dly.to/sBFI3z051ds"
-                  className="transition-colors duration-300 hover:text-indigo-400"
-                >
-                  Dev.to
-                </a>
-              </li>
-            </ul>
-          </motion.div>
+  return (
+    <motion.footer
+      ref={ref}
+      className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-300 border-t border-indigo-500/30"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-10">
+        {/* Social Section */}
+        <motion.div
+          variants={containerVariants}
+          whileHover={{ scale: 1.02 }}
+          className="bg-gray-900 p-6 rounded-2xl shadow-lg"
+        >
+          <h2 className="text-xl font-bold text-white mb-4">Connect with Me</h2>
+          <div className="flex space-x-4 text-2xl">
+            <a
+              href="https://linkedin.com/in/sathya-narayanans"
+              className="hover:text-indigo-400 transition"
+              target="_blank" rel="noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://www.instagram.com/sathyanarayanansakthi"
+              className="hover:text-pink-400 transition"
+              target="_blank" rel="noreferrer"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://github.com/Sathyanarayanansakthi"
+              className="hover:text-white transition"
+              target="_blank" rel="noreferrer"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://dly.to/sBFI3z051ds"
+              className="hover:text-teal-400 transition"
+              target="_blank" rel="noreferrer"
+            >
+              <FaDev />
+            </a>
+          </div>
+        </motion.div>
 
-          {/* Contact Us Section */}
-          <motion.div variants={containerVariants} whileHover={{ scale: 1.05 }}>
-            <h2 className="text-lg font-bold text-white">Contact Us</h2>
-            <p className="mt-2 text-sm">
-              Email:{" "}
-              <a
-                href="mailto:sathyanarayanansakthi04@gmail.com"
-                className="transition-colors duration-300 hover:text-indigo-400"
-              >
-                sathyanarayanansakthi04@gmail.com
-              </a>
-            </p>
-            <p className="mt-1 text-sm">
-              Phone:{" "}
-              <a
-                href="tel:+918122103066"
-                className="transition-colors duration-300 hover:text-indigo-400"
-              >
-                +91 8122103066
-              </a>
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-    </motion.footer>
-  );
+        {/* Contact Section */}
+        <motion.div
+          variants={containerVariants}
+          whileHover={{ scale: 1.02 }}
+          className="bg-gray-900 p-6 rounded-2xl shadow-lg"
+        >
+          <h2 className="text-xl font-bold text-white mb-4">Get in Touch</h2>
+          <p className="text-sm mb-2">
+            Email:{" "}
+            <a
+              href="mailto:sathyanarayanansakthi04@gmail.com"
+              className="hover:text-indigo-400 transition"
+            >
+              sathyanarayanansakthi04@gmail.com
+            </a>
+          </p>
+          <p className="text-sm">
+            Phone:{" "}
+            <a
+              href="tel:+918122103066"
+              className="hover:text-indigo-400 transition"
+            >
+              +91 8122103066
+            </a>
+          </p>
+        </motion.div>
+      </div>
+    </motion.footer>
+  );
 }
 
 export default Footer;
