@@ -1,118 +1,100 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Typography, Box } from "@mui/material";
-import { Menu as MenuIcon, LinkedIn, GitHub, Code, Instagram, Article } from "@mui/icons-material";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaDev,
+  FaInstagram,
+  FaBlog,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
+
+const navItems = [
+  {
+    href: "https://linkedin.com/in/sathya-narayanans",
+    label: "LinkedIn",
+    icon: <FaLinkedin />,
+  },
+  {
+    href: "https://github.com/Sathyanarayanansakthi",
+    label: "GitHub",
+    icon: <FaGithub />,
+  },
+  {
+    href: "https://dly.to/sBFI3z051ds",
+    label: "Dev",
+    icon: <FaDev />,
+  },
+  {
+    href: "https://www.instagram.com/sathyanarayanansakthi",
+    label: "Instagram",
+    icon: <FaInstagram />,
+  },
+  {
+    href: "https://snblog.vercel.app/",
+    label: "SN Blog",
+    icon: <FaBlog />,
+  },
+];
 
 const Navbar = () => {
-  const [menuAnchor, setMenuAnchor] = useState(null);
-  const menuOpen = Boolean(menuAnchor);
-
-  const handleMenuOpen = (event) => {
-    setMenuAnchor(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setMenuAnchor(null);
-  };
-
-  const navItems = [
-    {
-      href: "https://linkedin.com/in/sathya-narayanans",
-      label: "LinkedIn",
-      icon: <LinkedIn />,
-    },
-    {
-      href: "https://github.com/Sathyanarayanansakthi",
-      label: "GitHub",
-      icon: <GitHub />,
-    },
-    {
-      href: "https://dly.to/sBFI3z051ds",
-      label: "Dev",
-      icon: <Code />,
-    },
-    {
-      href: "https://www.instagram.com/sathyanarayanansakthi",
-      label: "Instagram",
-      icon: <Instagram />,
-    },
-    {
-      href: "https://snblog.vercel.app/",
-      label: "SN Blog",
-      icon: <Article />,
-    },
-  ];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "rgb(30, 41, 59)" }}>
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+    <nav className="bg-slate-900 text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Typography variant="h6" sx={{ fontWeight: "medium", color: "white" }}>
-          Sathya Narayanan
-        </Typography>
+        <h1 className="text-lg font-semibold tracking-wide">Sathya Narayanan</h1>
 
-        {/* Desktop Navigation */}
-        <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+        {/* Desktop nav */}
+        <ul className="hidden md:flex gap-6 items-center">
           {navItems.map(({ href, label, icon }) => (
-            <IconButton
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              sx={{
-                color: "white",
-                "&:hover": { color: "gray" }, // Adding hover effect
-              }}
-              title={label} // Title for accessibility
-            >
-              {icon}
-            </IconButton>
+            <li key={label}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-gray-400 transition-colors duration-200"
+                title={label}
+              >
+                {icon}
+                <span className="hidden lg:inline">{label}</span>
+              </a>
+            </li>
           ))}
-        </Box>
+        </ul>
 
-        {/* Mobile Menu Button */}
-        <IconButton
-          sx={{ display: { sm: "none" }, color: "white" }}
-          onClick={handleMenuOpen}
-          aria-label="Open menu"
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
-          <MenuIcon />
-        </IconButton>
-      </Toolbar>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
 
-      {/* Mobile Navigation Menu */}
-      <Menu
-        anchorEl={menuAnchor}
-        open={menuOpen}
-        onClose={handleMenuClose}
-        PaperProps={{
-          sx: { backgroundColor: "black", color: "white" },
-        }}
-      >
-        {navItems.map(({ href, label, icon }) => (
-          <MenuItem
-            key={label}
-            component="a"
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleMenuClose}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              "&:hover": { color: "gray" },
-            }}
-            title={label} // Title for accessibility
-          >
-            {icon}
-            {label}
-          </MenuItem>
-        ))}
-      </Menu>
-    </AppBar>
+      {/* Mobile nav dropdown */}
+      {isOpen && (
+        <ul className="md:hidden px-6 pb-4 space-y-4">
+          {navItems.map(({ href, label, icon }) => (
+            <li key={label}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-lg hover:text-gray-400 transition"
+                onClick={() => setIsOpen(false)}
+              >
+                {icon}
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </nav>
   );
 };
 
 export default Navbar;
-
