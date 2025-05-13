@@ -1,22 +1,11 @@
 import { useRef } from "react";
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaJs,
-  FaGitAlt,
-  FaGithub,
-  FaDatabase,
-  FaDocker,
-  FaNodeJs,
-  FaCube,
+  FaHtml5, FaCss3Alt, FaReact, FaJs, FaGitAlt,
+  FaGithub, FaDatabase, FaDocker, FaNodeJs, FaCube
 } from "react-icons/fa";
 import {
-  SiVercel,
-  SiFirebase,
-  SiExpress,
-  SiTailwindcss,
-  SiNextdotjs,
+  SiVercel, SiFirebase, SiExpress,
+  SiTailwindcss, SiNextdotjs
 } from "react-icons/si";
 import { motion, useInView } from "framer-motion";
 
@@ -29,17 +18,17 @@ const Skill = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.4,
+        staggerChildren: 0.3,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: { duration: 0.4 },
+      y: 0,
+      transition: { duration: 0.5 },
     },
   };
 
@@ -62,36 +51,34 @@ const Skill = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 flex flex-col items-center justify-center py-20 px-5">
-      <motion.h1
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="text-4xl font-bold text-white mb-12"
+    <section className="min-h-screen bg-gradient-to-br from-gray-900 to-black px-6 py-20 flex flex-col items-center justify-center">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-5xl font-bold text-white mb-16"
       >
-        My Skills
-      </motion.h1>
+        My Tech Stack
+      </motion.h2>
 
       <motion.div
         ref={ref}
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8"
       >
         {skills.map((skill, index) => (
           <motion.div
             variants={itemVariants}
             key={index}
-            className="flex justify-center items-center"
+            className="relative backdrop-blur-lg bg-white/10 border border-white/20 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            <div className="bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 opacity-30 rounded-lg"></div>
-              <div className="flex justify-center mb-4 relative z-10">
-                <skill.Icon size={50} style={{ color: skill.color }} />
-              </div>
-              <p className="text-white text-center font-medium z-10">{skill.name}</p>
+            <div className="flex flex-col items-center z-10 relative">
+              <skill.Icon size={50} style={{ color: skill.color }} />
+              <p className="mt-4 text-white font-medium">{skill.name}</p>
             </div>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 opacity-10 pointer-events-none" />
           </motion.div>
         ))}
       </motion.div>
@@ -100,5 +87,3 @@ const Skill = () => {
 };
 
 export default Skill;
-
-
