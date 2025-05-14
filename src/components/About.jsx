@@ -41,10 +41,9 @@ const About = () => {
       ref={ref}
       className="flex items-center min-h-screen text-white"
       style={{
-        backgroundColor: "#0f172a",
         backgroundImage: `
-          linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #3b82f6 100%),
-          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0)
+          linear-gradient(135deg, #0f0f0f 0%, #1f1f1f 50%, #111827 100%),
+          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.02) 1px, transparent 0)
         `,
         backgroundSize: "100% 100%, 22px 22px",
         backgroundBlendMode: "overlay",
@@ -58,10 +57,10 @@ const About = () => {
       >
         {/* Text Side */}
         <motion.div
-          className="relative z-10 p-8 backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl shadow-xl md:w-1/2"
+          className="relative z-10 p-8 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl shadow-xl md:w-1/2"
           variants={fadeInUp}
         >
-          <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 md:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-slate-400 to-slate-100 md:text-5xl">
             👋 Hello, I'm a Full-Stack Developer
           </h1>
           <p className="mt-6 text-base leading-relaxed text-gray-300 md:text-lg">
@@ -74,7 +73,7 @@ const About = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-6 py-3 mt-8 text-lg font-medium text-white transition duration-300 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:brightness-110"
+            className="flex items-center gap-2 px-6 py-3 mt-8 text-lg font-medium text-white transition duration-300 rounded-lg bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:brightness-110"
             onClick={() => window.open("/resume.pdf", "_blank")}
           >
             <FaDownload /> Download Resume
@@ -90,9 +89,9 @@ const About = () => {
             className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 p-1 shadow-2xl"
             style={{
               backgroundImage: `
-                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px),
-                linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(135deg, #1f2937, #374151, #111827)
               `,
               backgroundSize: "20px 20px, 20px 20px, cover",
               backgroundBlendMode: "overlay",
@@ -112,6 +111,7 @@ const About = () => {
 };
 
 export default About;
+
 
 };
 
