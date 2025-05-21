@@ -42,7 +42,7 @@ const About = () => {
       className="flex items-center min-h-screen text-white"
       style={{
         backgroundImage: `
-          linear-gradient(135deg, #0f0f0f 0%, #1f1f1f 50%, #111827 100%),
+          linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #2b2d42 100%),
           radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.02) 1px, transparent 0)
         `,
         backgroundSize: "100% 100%, 22px 22px",
@@ -73,7 +73,7 @@ const About = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-6 py-3 mt-8 text-lg font-medium text-white transition duration-300 rounded-lg bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:brightness-110"
+            className="flex items-center gap-2 px-6 py-3 mt-8 text-lg font-medium text-white transition duration-300 rounded-lg bg-gradient-to-r from-slate-800 via-blue-900 to-slate-900 hover:brightness-110"
             onClick={() => window.open("/resume.pdf", "_blank")}
           >
             <FaDownload /> Download Resume
