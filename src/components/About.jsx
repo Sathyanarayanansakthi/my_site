@@ -60,11 +60,13 @@ const About = () => {
           className="relative z-10 p-8 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl shadow-2xl md:w-1/2"
           variants={fadeInUp}
         >
-          <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-slate-400 to-slate-100 md:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight text-slate-100 md:text-5xl">
             👋 Hello, I'm a Full-Stack Developer
           </h1>
-          <p className="mt-6 text-base leading-relaxed text-gray-400 md:text-lg">
-            I build dynamic, elegant, and scalable web applications. With strong frontend and backend skills, I focus on collaboration, clean design, and meaningful product experiences.
+          <p className="mt-6 text-base leading-relaxed text-slate-200 md:text-lg">
+            I build dynamic, elegant, and scalable web applications. With strong
+            frontend and backend skills, I focus on collaboration, clean design,
+            and meaningful product experiences.
           </p>
 
           <motion.button
