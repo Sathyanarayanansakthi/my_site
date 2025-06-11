@@ -60,7 +60,7 @@ const About = () => {
           className="relative z-10 p-8 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl shadow-xl md:w-1/2"
           variants={fadeInUp}
         >
-          <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-slate-400 to-slate-100 md:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-slate-900 to-slate-100 md:text-5xl">
             👋 Hello, I'm a Full-Stack Developer
           </h1>
           <p className="mt-6 text-base leading-relaxed text-gray-300 md:text-lg">
