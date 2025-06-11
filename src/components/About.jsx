@@ -42,10 +42,10 @@ const About = () => {
       className="flex items-center min-h-screen text-white"
       style={{
         backgroundImage: `
-          linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #2b2d42 100%),
-          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.02) 1px, transparent 0)
+          linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%),
+          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0)
         `,
-        backgroundSize: "100% 100%, 22px 22px",
+        backgroundSize: "100% 100%, 24px 24px",
         backgroundBlendMode: "overlay",
       }}
     >
@@ -57,23 +57,20 @@ const About = () => {
       >
         {/* Text Side */}
         <motion.div
-          className="relative z-10 p-8 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl shadow-xl md:w-1/2"
+          className="relative z-10 p-8 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl shadow-2xl md:w-1/2"
           variants={fadeInUp}
         >
-          <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-slate-900 to-slate-900 md:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-slate-400 to-slate-100 md:text-5xl">
             👋 Hello, I'm a Full-Stack Developer
           </h1>
-          <p className="mt-6 text-base leading-relaxed text-gray-300 md:text-lg">
-            With a strong command of both front-end and back-end technologies, I
-            specialize in creating smooth and high-performance web experiences.
-            My passion lies in collaboration, design thinking, and developing
-            products that make a difference in the digital world.
+          <p className="mt-6 text-base leading-relaxed text-gray-400 md:text-lg">
+            I build dynamic, elegant, and scalable web applications. With strong frontend and backend skills, I focus on collaboration, clean design, and meaningful product experiences.
           </p>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-6 py-3 mt-8 text-lg font-medium text-white transition duration-300 rounded-lg bg-gradient-to-r from-slate-800 via-blue-900 to-slate-900 hover:brightness-110"
+            className="flex items-center gap-2 px-6 py-3 mt-8 text-lg font-medium text-white transition duration-300 rounded-lg bg-gradient-to-r from-indigo-800 via-indigo-900 to-black hover:shadow-[0_0_15px_#6366f1]"
             onClick={() => window.open("/resume.pdf", "_blank")}
           >
             <FaDownload /> Download Resume
@@ -86,12 +83,12 @@ const About = () => {
           variants={imageVariants}
         >
           <div
-            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 p-1 shadow-2xl"
+            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 p-1 shadow-[0_0_20px_rgba(100,116,139,0.5)]"
             style={{
               backgroundImage: `
                 linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(135deg, #1f2937, #374151, #111827)
+                linear-gradient(135deg, #1e293b, #111827, #0f172a)
               `,
               backgroundSize: "20px 20px, 20px 20px, cover",
               backgroundBlendMode: "overlay",
@@ -111,3 +108,4 @@ const About = () => {
 };
 
 export default About;
+
