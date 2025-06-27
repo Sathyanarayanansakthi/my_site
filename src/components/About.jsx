@@ -1,4 +1,3 @@
-import image from "../components/images/ai.jpg"; // or your actual import path
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FaDownload } from "react-icons/fa";
@@ -79,19 +78,6 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side - Wide, tall, rounded, and responsive */}
-        <motion.div
-          className="flex justify-center items-center md:w-1/2"
-          variants={imageVariants}
-        >
-          <div className="w-full max-w-[300px] h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
-            <img
-              src={image}
-              alt="Profile"
-              className="w-full h-full object-cover object-center rounded-2xl"
-            />
-          </div>
-        </motion.div>
       </motion.div>
     </div>
   );
