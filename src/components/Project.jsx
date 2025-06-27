@@ -49,7 +49,15 @@ const Projects = () => {
   return (
     <div
       ref={ref}
-      className="min-h-screen py-16 px-6 sm:px-10 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
+      className="min-h-screen py-16 px-6 sm:px-10 text-white"
+      style={{
+        backgroundImage: `
+          linear-gradient(to bottom, #0f172a, #1e293b),
+          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.07) 1px, transparent 0)
+        `,
+        backgroundSize: "100% 100%, 20px 20px",
+        backgroundBlendMode: "overlay",
+      }}
     >
       <AnimatePresence>
         <motion.h3
@@ -74,11 +82,14 @@ const Projects = () => {
             >
               <div className="flex items-center gap-4 mb-3">
                 <FaLaptopCode className="text-teal-300 text-3xl" />
-                <h5 className="text-2xl font-semibold text-white">{project.title}</h5>
+                <h5 className="text-2xl font-semibold text-white">
+                  {project.title}
+                </h5>
               </div>
               <p className="text-gray-300 mb-3">{project.description}</p>
               <p className="text-sm text-teal-200">
-                <span className="font-semibold">Tech Stack:</span> {project.techStack}
+                <span className="font-semibold">Tech Stack:</span>{" "}
+                {project.techStack}
               </p>
             </motion.div>
           ))}
