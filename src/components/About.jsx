@@ -79,7 +79,7 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side - Expanded */}
+        {/* Image Side - Expanded width */}
         <motion.div
           className="relative flex items-center justify-center mt-10 md:mt-0 md:w-1/2"
           variants={imageVariants}
@@ -87,7 +87,7 @@ const About = () => {
           <img
             src={image}
             alt="Full Profile"
-            className="w-full h-[90vh] object-contain"
+            className="w-[100%] h-[500px] object-contain"
           />
         </motion.div>
       </motion.div>
