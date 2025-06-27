@@ -42,9 +42,9 @@ const About = () => {
       style={{
         backgroundImage: `
           linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%),
-          radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.3) 1px, transparent 0)
+          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0)
         `,
-        backgroundSize: "100% 100%, 24px 24px",
+        backgroundSize: "100% 100%, 20px 20px",
         backgroundBlendMode: "overlay",
       }}
     >
@@ -78,6 +78,21 @@ const About = () => {
           </motion.button>
         </motion.div>
 
+        {/* Image Side */}
+        <motion.div
+          className="relative"
+          variants={imageVariants}
+        >
+          <div
+            className="w-[340px] h-auto overflow-hidden rounded-2xl shadow-xl"
+          >
+            <img
+              src="/images/ai.jpg"
+              alt="Profile"
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );
