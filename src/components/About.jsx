@@ -98,7 +98,7 @@ const About = () => {
             }}
           >
             <img
-              src={image}
+              src="/images/ai.jpg"
               alt="AI Illustration"
               className="w-full h-full rounded-full object-cover"
             />
@@ -110,4 +110,5 @@ const About = () => {
 };
 
 export default About;
+
 
