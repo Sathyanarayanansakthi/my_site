@@ -51,7 +51,17 @@ const Skill = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 to-black px-6 py-20 flex flex-col items-center justify-center">
+    <section
+      className="min-h-screen px-6 py-20 flex flex-col items-center justify-center"
+      style={{
+        backgroundImage: `
+          linear-gradient(to bottom right, #111827, #000000),
+          radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0)
+        `,
+        backgroundSize: "100% 100%, 20px 20px",
+        backgroundBlendMode: "overlay",
+      }}
+    >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
