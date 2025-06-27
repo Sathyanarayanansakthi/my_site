@@ -28,11 +28,11 @@ const About = () => {
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { type: "spring", stiffness: 60, duration: 1.5 },
+      transition: { type: "spring", stiffness: 60, duration: 1.2 },
     },
   };
 
@@ -79,27 +79,26 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side */}
+        {/* Image Side - Rectangle */}
         <motion.div
           className="relative flex items-center justify-center mt-10 md:mt-0 md:w-1/2"
           variants={imageVariants}
         >
           <div
-            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 p-1 shadow-[0_0_20px_rgba(100,116,139,0.5)] bg-black rounded-full overflow-hidden"
+            className="relative w-full max-w-md h-[400px] overflow-hidden rounded-xl shadow-[0_0_25px_rgba(100,116,139,0.5)] border border-slate-700"
             style={{
               backgroundImage: `
-                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(135deg, #1e293b, #111827, #0f172a)
+                linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px)
               `,
-              backgroundSize: "20px 20px, 20px 20px, cover",
+              backgroundSize: "20px 20px",
               backgroundBlendMode: "overlay",
             }}
           >
             <img
               src={image}
-              alt="AI Illustration"
-              className="w-full h-full object-contain"
+              alt="Developer"
+              className="w-full h-full object-cover"
             />
           </div>
         </motion.div>
