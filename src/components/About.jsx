@@ -1,4 +1,4 @@
-import image from "../components/images/ai.jpg";
+import image from "../components/images/ai.jpg"; // or your actual import path
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FaDownload } from "react-icons/fa";
@@ -50,7 +50,7 @@ const About = () => {
       }}
     >
       <motion.div
-        className="flex flex-col justify-between w-full px-6 py-16 mx-auto max-w-7xl md:flex-row md:items-center"
+        className="flex flex-col justify-between w-full px-6 py-16 mx-auto max-w-7xl md:flex-row md:items-center gap-12"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -79,19 +79,18 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side - Balanced, rounded, and professional */}
+        {/* Image Side - Wide, tall, rounded, and responsive */}
         <motion.div
-          className="relative flex items-center justify-center mt-12 md:mt-0 md:w-1/2 px-6"
+          className="flex justify-center items-center md:w-1/2"
           variants={imageVariants}
         >
-          <img
-            src={image}
-            alt="Full Profile"
-            className="w-full max-w-[480px] h-auto rounded-2xl shadow-xl object-cover"
-            style={{
-              aspectRatio: "4 / 5", // nicely cropped portrait
-            }}
-          />
+          <div className="w-full max-w-[500px] h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+            <img
+              src={image}
+              alt="Profile"
+              className="w-full h-full object-cover object-center rounded-2xl"
+            />
+          </div>
         </motion.div>
       </motion.div>
     </div>
