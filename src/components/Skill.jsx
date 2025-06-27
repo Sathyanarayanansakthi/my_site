@@ -5,7 +5,7 @@ import {
 } from "react-icons/fa";
 import {
   SiVercel, SiFirebase, SiExpress,
-  SiTailwindcss, SiNextdotjs
+  SiTailwindcss, SiNextdotjs,SiRedux
 } from "react-icons/si";
 import { motion, useInView } from "framer-motion";
 
@@ -48,6 +48,7 @@ const Skill = () => {
     { Icon: SiVercel, color: "#FFFFFF", name: "Vercel" },
     { Icon: FaDocker, color: "#2496ED", name: "Docker" },
     { Icon: FaCube, color: "#6366F1", name: "Shadcn UI" },
+    {Icon:SiRedux, color: "#00a7e5", name: "Redux" },
   ];
 
   return (

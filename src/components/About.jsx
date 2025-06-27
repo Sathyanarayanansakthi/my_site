@@ -26,14 +26,14 @@ const About = () => {
     },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { type: "spring", stiffness: 60, duration: 1.2 },
-    },
-  };
+  // const imageVariants = {
+  //   hidden: { opacity: 0, scale: 0.95 },
+  //   visible: {
+  //     opacity: 1,
+  //     scale: 1,
+  //     transition: { type: "spring", stiffness: 60, duration: 1.2 },
+  //   },
+  // };
 
   return (
     <div
@@ -60,7 +60,8 @@ const About = () => {
           variants={fadeInUp}
         >
           <h1 className="text-4xl font-extrabold tracking-tight text-slate-100 md:text-5xl">
-            👋 Hello, I'm a Full-Stack Developer
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            👋 Hello, I'm  Sathya Narayanan
           </h1>
           <p className="mt-6 text-base leading-relaxed text-slate-200 md:text-lg">
             I build dynamic, elegant, and scalable web applications. With strong

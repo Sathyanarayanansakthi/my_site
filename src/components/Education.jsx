@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaGraduationCap, FaBriefcase } from "react-icons/fa";
 
-// Data
 const educationData = [
   {
     year: "2022 - 2025",
