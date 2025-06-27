@@ -84,7 +84,7 @@ const About = () => {
           className="flex justify-center items-center md:w-1/2"
           variants={imageVariants}
         >
-          <div className="w-full max-w-[500px] h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+          <div className="w-full max-w-[300px] h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
             <img
               src={image}
               alt="Profile"
