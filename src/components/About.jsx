@@ -43,7 +43,7 @@ const About = () => {
       style={{
         backgroundImage: `
           linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%),
-          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0)
+          radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.2) 1px, transparent 0)
         `,
         backgroundSize: "100% 100%, 24px 24px",
         backgroundBlendMode: "overlay",
@@ -79,24 +79,16 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side with soft glow */}
+        {/* Image Side - full clean display, no wrapper or holder */}
         <motion.div
           className="relative flex items-center justify-center mt-10 md:mt-0 md:w-1/2"
           variants={imageVariants}
         >
-          <div
-            className="relative max-w-md h-[420px] w-full rounded-2xl p-1"
-            style={{
-              background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)",
-              boxShadow: "0 0 40px rgba(99, 102, 241, 0.2)",
-            }}
-          >
-            <img
-              src={image}
-              alt="Full Profile"
-              className="w-full h-full object-contain rounded-xl"
-            />
-          </div>
+          <img
+            src={image}
+            alt="Full Profile"
+            className="w-full max-w-md h-[420px] object-contain"
+          />
         </motion.div>
       </motion.div>
     </div>
