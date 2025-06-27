@@ -1,4 +1,4 @@
-import image from "../components/images/ai.jpg"; // Your 3732x8192 image
+import image from "../components/images/ai.jpg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FaDownload } from "react-icons/fa";
@@ -79,26 +79,22 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side */}
+        {/* Image Side with soft glow */}
         <motion.div
           className="relative flex items-center justify-center mt-10 md:mt-0 md:w-1/2"
           variants={imageVariants}
         >
           <div
-            className="relative w-full max-w-md h-[400px] overflow-hidden rounded-xl shadow-[0_0_25px_rgba(100,116,139,0.5)] border border-slate-700 bg-slate-800 flex items-center justify-center"
+            className="relative max-w-md h-[420px] w-full rounded-2xl p-1"
             style={{
-              backgroundImage: `
-                linear-gradient(to right, rgba(255,255,255,0.01) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.01) 1px, transparent 1px)
-              `,
-              backgroundSize: "20px 20px",
-              backgroundBlendMode: "overlay",
+              background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)",
+              boxShadow: "0 0 40px rgba(99, 102, 241, 0.2)",
             }}
           >
             <img
               src={image}
               alt="Full Profile"
-              className="max-h-full max-w-full object-contain"
+              className="w-full h-full object-contain rounded-xl"
             />
           </div>
         </motion.div>
