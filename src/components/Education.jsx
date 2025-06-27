@@ -48,7 +48,15 @@ const EducationAndExperience = () => {
   return (
     <div
       ref={ref}
-      className="min-h-screen py-20 px-4 md:px-0 bg-gradient-to-b from-slate-950 to-slate-800 text-white flex flex-col items-center"
+      className="min-h-screen py-20 px-4 md:px-0 text-white flex flex-col items-center"
+      style={{
+        backgroundImage: `
+          linear-gradient(to bottom, #0f172a, #1e293b),
+          radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0)
+        `,
+        backgroundSize: "100% 100%, 20px 20px",
+        backgroundBlendMode: "overlay",
+      }}
     >
       {/* Section Heading */}
       <motion.h3
@@ -76,7 +84,9 @@ const EducationAndExperience = () => {
                 variants={timelineVariants}
                 className="bg-slate-800/60 p-5 rounded-2xl shadow-lg border border-slate-600 hover:border-teal-400 transition-all"
               >
-                <p className="text-sm text-teal-400 font-medium mb-2">{item.year}</p>
+                <p className="text-sm text-teal-400 font-medium mb-2">
+                  {item.year}
+                </p>
                 <h5 className="text-xl font-bold">{item.degree}</h5>
                 <p className="text-gray-400">{item.institution}</p>
               </motion.div>
@@ -99,7 +109,9 @@ const EducationAndExperience = () => {
                 variants={timelineVariants}
                 className="bg-slate-800/60 p-5 rounded-2xl shadow-lg border border-slate-600 hover:border-purple-400 transition-all"
               >
-                <p className="text-sm text-purple-400 font-medium mb-2">{item.duration}</p>
+                <p className="text-sm text-purple-400 font-medium mb-2">
+                  {item.duration}
+                </p>
                 <h5 className="text-xl font-bold">{item.role}</h5>
                 <p className="text-gray-300 italic">{item.company}</p>
                 <p className="text-gray-400 mt-2">{item.description}</p>
