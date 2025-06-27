@@ -85,7 +85,7 @@ const About = () => {
           variants={imageVariants}
         >
           <div
-            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 p-1 shadow-[0_0_20px_rgba(100,116,139,0.5)]"
+            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 p-1 shadow-[0_0_20px_rgba(100,116,139,0.5)] bg-cover rounded-full overflow-hidden"
             style={{
               backgroundImage: `
                 linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
@@ -94,13 +94,12 @@ const About = () => {
               `,
               backgroundSize: "20px 20px, 20px 20px, cover",
               backgroundBlendMode: "overlay",
-              borderRadius: "9999px",
             }}
           >
             <img
-              src="/images/ai.jpg"
+              src={image}
               alt="AI Illustration"
-              className="w-full h-full rounded-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
         </motion.div>
@@ -110,5 +109,3 @@ const About = () => {
 };
 
 export default About;
-
-
