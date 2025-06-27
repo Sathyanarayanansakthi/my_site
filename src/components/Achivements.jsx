@@ -2,7 +2,7 @@ import { FaTrophy, FaAward } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-// Data for achievements
+// Achievements Data
 const achievementsData = [
   {
     title: "National Level Technical Symposium - Runner-up",
@@ -18,15 +18,15 @@ const achievementsData = [
 
 const Achievements = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Trigger animations once when in view
+  const isInView = useInView(ref, { once: true });
 
-  // Animation variants
+  // Animation
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.4, // Adds a delay between each child animation
+        staggerChildren: 0.4,
       },
     },
   };
@@ -36,31 +36,39 @@ const Achievements = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.4 },
+      transition: { duration: 0.5 },
     },
   };
 
   return (
     <section
-      className="flex flex-col items-center justify-center min-h-screen py-20 bg-slate-800"
       ref={ref}
+      className="flex flex-col items-center justify-center min-h-screen py-20 px-6"
+      style={{
+        backgroundImage: `
+          linear-gradient(to bottom right, #0f172a, #1e293b),
+          radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)
+        `,
+        backgroundSize: "100% 100%, 20px 20px",
+        backgroundBlendMode: "overlay",
+      }}
     >
-      {/* Section Title */}
+      {/* Heading */}
       <motion.h1
-        className="mb-10 text-4xl font-bold text-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 1 }}
+        className="text-4xl md:text-5xl font-bold text-white mb-16 text-center"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
       >
         My Achievements
       </motion.h1>
 
-      {/* Fallback for Empty Data */}
+      {/* Grid */}
       {achievementsData.length === 0 ? (
         <p className="text-lg text-white">No achievements added yet. Stay tuned!</p>
       ) : (
         <motion.div
-          className="grid grid-cols-1 gap-8 px-4 mx-auto sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-5 max-w-7xl"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl w-full"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -68,25 +76,15 @@ const Achievements = () => {
           {achievementsData.map((achievement, index) => (
             <motion.div
               key={index}
-              className="p-6 text-center text-white transition-transform duration-300 transform bg-gray-800 rounded-lg shadow-xl hover:scale-105 hover:bg-gray-700"
               variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                opacity: 0.8,
-                transition: { duration: 0.3 },
-              }}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 bg-white/5 border border-white/10 backdrop-blur rounded-2xl text-white shadow-lg hover:border-teal-400 transition-all"
             >
-              {/* Achievement Icon */}
-              <div
-                className="mb-4"
-                aria-label={`${achievement.title} icon`}
-              >
-                {achievement.icon}
-              </div>
-              {/* Achievement Title */}
-              <h3 className="text-xl font-semibold">{achievement.title}</h3>
-              {/* Achievement Description */}
-              <p className="mt-2 text-sm text-gray-400">{achievement.description}</p>
+              <div className="mb-4 flex justify-center">{achievement.icon}</div>
+              <h3 className="text-xl font-semibold text-center">{achievement.title}</h3>
+              <p className="mt-2 text-sm text-center text-gray-300">
+                {achievement.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
