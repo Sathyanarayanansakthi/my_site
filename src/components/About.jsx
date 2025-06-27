@@ -43,7 +43,7 @@ const About = () => {
       style={{
         backgroundImage: `
           linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%),
-          radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.2) 1px, transparent 0)
+          radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.3) 1px, transparent 0)
         `,
         backgroundSize: "100% 100%, 24px 24px",
         backgroundBlendMode: "overlay",
@@ -79,15 +79,18 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side - Fixed width, rounded edge */}
+        {/* Image Side - Balanced, rounded, and professional */}
         <motion.div
-          className="relative flex items-center justify-center mt-10 md:mt-0 md:w-1/2"
+          className="relative flex items-center justify-center mt-12 md:mt-0 md:w-1/2 px-6"
           variants={imageVariants}
         >
           <img
             src={image}
             alt="Full Profile"
-            className="w-full max-w-[600px] h-auto rounded-xl object-contain shadow-2xl"
+            className="w-full max-w-[480px] h-auto rounded-2xl shadow-xl object-cover"
+            style={{
+              aspectRatio: "4 / 5", // nicely cropped portrait
+            }}
           />
         </motion.div>
       </motion.div>
