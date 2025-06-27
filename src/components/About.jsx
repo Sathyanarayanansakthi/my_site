@@ -78,21 +78,6 @@ const About = () => {
           </motion.button>
         </motion.div>
 
-        {/* Image Side */}
-        <motion.div
-          className="relative"
-          variants={imageVariants}
-        >
-          <div
-            className="w-[340px] h-auto overflow-hidden rounded-2xl shadow-xl"
-          >
-            <img
-              src="/images/ai.jpg"
-              alt="Profile"
-              className="w-full h-full object-cover rounded-2xl"
-            />
-          </div>
-        </motion.div>
       </motion.div>
     </div>
   );
