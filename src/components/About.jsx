@@ -107,7 +107,7 @@ const About = () => {
       >
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <motion.div variants={fadeInUp} className="mb-8">
+          <motion.div variants={fadeInUp} className="mb-8 mt-20">
             <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-300 border rounded-full bg-indigo-950/50 border-indigo-500/30 backdrop-blur-sm">
               <span className="relative flex w-2 h-2">
                 <span className="absolute inline-flex w-full h-full bg-indigo-400 rounded-full opacity-75 animate-ping"></span>
