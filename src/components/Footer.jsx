@@ -228,8 +228,8 @@ function Footer() {
                     </motion.div>
                 </div>
 
-                {/* Bottom Bar */}
-                    
+
+            </div>
         </motion.footer>
     );
 }
