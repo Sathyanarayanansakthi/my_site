@@ -184,27 +184,7 @@ const About = () => {
             </motion.div>
 
             {/* Social Links */}
-            <motion.div
-              variants={fadeInUp}
-              className="flex gap-4 mt-10 pt-8 border-t border-white/10"
-            >
-              {[
-                { icon: FaGithub, label: "GitHub" },
-                { icon: FaLinkedin, label: "LinkedIn" },
-                { icon: FaTwitter, label: "Twitter" },
-              ].map(({ icon: Icon, label }) => (
-                <motion.a
-                  key={label}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center w-12 h-12 text-slate-400 transition-all duration-300 border rounded-lg bg-slate-800/30 backdrop-blur-sm border-slate-700 hover:text-white hover:bg-slate-800 hover:border-indigo-500/50"
-                  href="#"
-                  aria-label={label}
-                >
-                  <Icon className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </motion.div>
+            
           </motion.div>
         </div>
       </motion.div>
