@@ -229,39 +229,7 @@ function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <motion.div
-                    variants={itemVariants}
-                    className="pt-8 border-t border-white/10"
-                >
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <p className="text-sm text-slate-400 text-center md:text-left">
-                            © {new Date().getFullYear()} Sathya Narayanan. All rights reserved.
-                        </p>
-                        
-                        <motion.p
-                            className="text-sm text-slate-400 flex items-center gap-2"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1 }}
-                        >
-                            Crafted with{" "}
-                            <motion.span
-                                animate={{
-                                    scale: [1, 1.3, 1],
-                                }}
-                                transition={{
-                                    duration: 1,
-                                    repeat: Infinity,
-                                    repeatDelay: 1,
-                                }}
-                            >
-                                <FaHeart className="text-red-500" />
-                            </motion.span>{" "}
-                            and React
-                        </motion.p>
-                    </div>
-                </motion.div>
-            </div>
+                    
         </motion.footer>
     );
 }
