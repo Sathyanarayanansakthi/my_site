@@ -178,7 +178,7 @@ const About = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 border rounded-xl bg-slate-800/50 backdrop-blur-sm border-slate-700 hover:bg-slate-800 hover:border-indigo-500/50"
-                onClick={()=>  window.open("https://github.com/Sathyanarayanansakthi")
+                onClick={() => window.open("https://github.com/Sathyanarayanansakthi", "_blank")}
               >
                 View Projects
               </motion.button>
