@@ -33,10 +33,16 @@ const experienceData = [
   {
     company: "Tata Consultancy Services",
     role: "Graduate Trainee",
-    duration: "Dec 2025 - Present",
+    duration: "Dec 2025 - Jan 2026",
     logo: "https://companieslogo.com/img/orig/TCS.NS-7401f1bd.png?t=1720244494",
     description:
       "Built and maintained IT systems, providing technical support, troubleshooting hardware and software issues, and ensuring smooth day-to-day operations for users.",
+  },
+    {
+    company: "Tata Consultancy Services",
+    role: "Engineer",
+    duration: "Feb 2026 - Present",
+    logo: "https://companieslogo.com/img/orig/TCS.NS-7401f1bd.png?t=1720244494",
   },
 ];
 
