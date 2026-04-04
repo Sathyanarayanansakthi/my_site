@@ -44,6 +44,12 @@ const experienceData = [
     duration: "Feb 2026 - Present",
     logo: "https://companieslogo.com/img/orig/TCS.NS-7401f1bd.png?t=1720244494",
   },
+  {
+    company: "TATA AmericaInternational Corporation",
+    role: "Engineer",
+    duration: "Feb 2026 - Present",
+    logo: "https://companieslogo.com/img/orig/TCS.NS-7401f1bd.png?t=1720244494",
+  },
 ];
 
 // Animation Variants
